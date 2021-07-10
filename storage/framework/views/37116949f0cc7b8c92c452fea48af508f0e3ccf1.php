@@ -40,8 +40,6 @@ $heads = [ 'ID','Name','Entry','Time','Location','Exit','Time','Location',
         </div>
     </div>
     <div class="card-body" style="display: none;">
-        <!-- <form action="{//{ route('attendances.index') }//}" method="POST"  > -->
-        <!-- @ csrf -->
         <form id="getDate">
 
             <div class="card card-purple col-12 col-md-6 mx-auto">
@@ -211,13 +209,7 @@ $heads = [ 'ID','Name','Entry','Time','Location','Exit','Time','Location',
             document.getElementById('table1_wrapper').innerHTML = tbody;
         }
         xhr.send();
-    }
-    $(document).ready(function() {
-        $('#dataTable').DataTable({
-            responsive: true,
-            autoWidth: false,
-        });
-    });
+    } 
 </script>
 <?php $__env->stopSection(); ?>
 <?php echo $__env->make('adminlte::page', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?><?php /**PATH C:\Users\Jerald Lim\Desktop\Employee_management_system\resources\views/attendance/index.blade.php ENDPATH**/ ?>

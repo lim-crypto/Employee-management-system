@@ -14,7 +14,7 @@
                             <form method="POST" action="{{ route('login') }}">
                                 @csrf
                                 <div class="form-group">
-                                    <input placeholder="Email *" id="email" type="email" class="form-control @error('email') is-invalid @enderror" name="email" value="{{ old('email') ? old('email') : 'admin@gmail.com' }}" required autocomplete="email" autofocus>
+                                    <input placeholder="Email *" id="email" type="email" class="form-control @error('email') is-invalid @enderror" name="email" value="{{ old('email') ? old('email') : '' }}" required autocomplete="email" autofocus>
 
                                     @error('email')
                                     <span class="invalid-feedback" role="alert">
@@ -24,7 +24,7 @@
                                 </div>
                                 <div class="form-group">
 
-                                    <input placeholder="Password *" id="password" type="password" class="form-control @error('password') is-invalid @enderror" name="password" value="{{ old('email') ? '' : 'admin' }}" required autocomplete="current-password">
+                                    <input placeholder="Password *" id="password" type="password" class="form-control @error('password') is-invalid @enderror" name="password" value="{{ old('email') ? '' : '' }}" required autocomplete="current-password">
 
                                     @error('password')
                                     <span class="invalid-feedback" role="alert">
