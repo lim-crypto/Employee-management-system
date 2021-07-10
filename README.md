@@ -1,6 +1,6 @@
 # Employee Management System
 
-<p>How to use:</p>
+<p>How to install:</p>
 
 * git clone https://github.com/lim-crypto/Employee-management-system.git 
 * composer install
