@@ -7,7 +7,7 @@
 
 <?php $__env->startSection('content'); ?>
 
-<!--  <?php if (isset($component)) { $__componentOriginald4c8f106e1e33ab85c5d037c2504e2574c1b0975 = $component; } ?>
+ <?php if (isset($component)) { $__componentOriginald4c8f106e1e33ab85c5d037c2504e2574c1b0975 = $component; } ?>
 <?php $component = $__env->getContainer()->make(App\View\Components\Alert::class, []); ?>
 <?php $component->withName('alert'); ?>
 <?php if ($component->shouldRender()): ?>
@@ -17,7 +17,7 @@
 <?php unset($__componentOriginald4c8f106e1e33ab85c5d037c2504e2574c1b0975); ?>
 <?php endif; ?>
 <?php echo $__env->renderComponent(); ?>
-<?php endif; ?>  -->
+<?php endif; ?> 
 <div class="container">
     <div class="row justify-content-center">
         <div class="col-md-8">
@@ -165,10 +165,8 @@ if (isset($__messageOriginal)) { $message = $__messageOriginal; }
 endif;
 unset($__errorArgs, $__bag); ?>
                             </div>
-                        </div>
-                        <!-- /.card-body -->
-                    </div>
-                    <!-- /.card -->
+                        </div> 
+                    </div> 
                 </div>
 
                 <div class="card card-purple">
@@ -231,10 +229,7 @@ unset($__errorArgs, $__bag); ?>
                             </div>
                         </div>
                         <div class="col-md-6">
-                            <!-- <div class="form-group">
-                                <label for="">Employee ID</label>
-                                <input type="text" class="form-control" id="" placeholder="Enter employee id">
-                            </div> -->
+                            
                             <div class="form-group">
                                 <label for="">Department</label>
                                 <select class="form-control <?php $__errorArgs = ['department_id'];
@@ -381,15 +376,5 @@ unset($__errorArgs, $__bag); ?>
     </div>
 </div>
 
-<?php $__env->stopSection(); ?>
-
-<?php $__env->startSection('css'); ?>
-<link rel="stylesheet" href="/css/admin_custom.css">
-<?php $__env->stopSection(); ?>
-
-<?php $__env->startSection('js'); ?>
-<script>
-    console.log('Hi!');
-</script>
 <?php $__env->stopSection(); ?>
 <?php echo $__env->make('adminlte::page', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?><?php /**PATH C:\Users\Jerald Lim\Desktop\Employee_management_system\resources\views/users/add.blade.php ENDPATH**/ ?>

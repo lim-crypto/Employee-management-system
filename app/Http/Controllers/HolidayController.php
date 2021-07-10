@@ -25,8 +25,6 @@ class HolidayController extends Controller
         return redirect(route('holidays.index'))->with('message', 'Holiday deleted');
     }
 
-
-
     public function store(Request $request)
     { 
         if ($request->input('multiple-days') == "no") {
@@ -51,20 +49,14 @@ class HolidayController extends Controller
             ]);
         }
         return redirect(route('holidays.index'))->with('message', 'New Holiday added');
-    }
-
-    public function show()
-    {
-    }
+    } 
 
     public function update(Holiday $holiday, Request $request)
     {
         $request->validate([
             'name' =>  ['required'],
         ]);
-        if ($request->input('multiple-days') == "no") {
-
-
+        if ($request->input('multiple-days') == "no") { 
             $holiday->name = $request->name;
             $holiday->start_date = Carbon::create($request->date);
             $holiday->end_date = null;

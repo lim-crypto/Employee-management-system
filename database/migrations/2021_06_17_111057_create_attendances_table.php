@@ -15,10 +15,8 @@ class CreateAttendancesTable extends Migration
     {
         Schema::create('attendances', function (Blueprint $table) {
             $table->id();
-            $table->bigInteger('user_id');
-            $table->string('entry_ip');
-            $table->string('entry_location');
-            $table->string('exit_ip')->nullable();
+            $table->bigInteger('user_id'); 
+            $table->string('entry_location'); 
             $table->string('exit_location')->nullable();
             $table->string('registered')->nullable();
             $table->timestamps();

@@ -16,9 +16,17 @@ $heads = [
 ?>
 
 
-
-<!-- "collapsed" -->
-<br><br><br>
+ <?php if (isset($component)) { $__componentOriginalc254754b9d5db91d5165876f9d051922ca0066f4 = $component; } ?>
+<?php $component = $__env->getContainer()->make(Illuminate\View\AnonymousComponent::class, ['view' => 'components.alerts','data' => []]); ?>
+<?php $component->withName('alerts'); ?>
+<?php if ($component->shouldRender()): ?>
+<?php $__env->startComponent($component->resolveView(), $component->data()); ?>
+<?php $component->withAttributes([]); ?> <?php if (isset($__componentOriginalc254754b9d5db91d5165876f9d051922ca0066f4)): ?>
+<?php $component = $__componentOriginalc254754b9d5db91d5165876f9d051922ca0066f4; ?>
+<?php unset($__componentOriginalc254754b9d5db91d5165876f9d051922ca0066f4); ?>
+<?php endif; ?>
+<?php echo $__env->renderComponent(); ?>
+<?php endif; ?> 
  <?php if (isset($component)) { $__componentOriginald4c8f106e1e33ab85c5d037c2504e2574c1b0975 = $component; } ?>
 <?php $component = $__env->getContainer()->make(App\View\Components\Alert::class, []); ?>
 <?php $component->withName('alert'); ?>
@@ -30,7 +38,6 @@ $heads = [
 <?php endif; ?>
 <?php echo $__env->renderComponent(); ?>
 <?php endif; ?> 
-
 <div class="card card-purple collapsed-card">
     <div class="card-header">
         <h3 class="card-title">
@@ -222,19 +229,5 @@ $heads = [
 
 
 
-<?php $__env->stopSection(); ?>
-<?php $__env->startSection('css'); ?>
-<link rel="stylesheet" href="/css/admin_custom.css">
-<?php $__env->stopSection(); ?>
-<?php $__env->startSection('js'); ?>
-
-<script>
-    $(document).ready(function() {
-        $('#dataTable').DataTable({
-            responsive: true,
-            autoWidth: false,
-        });
-    });
-</script>
-<?php $__env->stopSection(); ?>
+<?php $__env->stopSection(); ?> 
 <?php echo $__env->make('adminlte::page', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?><?php /**PATH C:\Users\Jerald Lim\Desktop\Employee_management_system\resources\views/role/index.blade.php ENDPATH**/ ?>

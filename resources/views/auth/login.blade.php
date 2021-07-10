@@ -1,9 +1,70 @@
 @extends('layouts.app')
 
 @section('content')
+ 
 
-<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
-<title>Document</title>
+<div class="container register">
+    <div class="row">
+        <div class="col-md-6 register-right">
+            <div class="tab-content" id="myTabContent">
+                <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
+                    <h3 class="register-heading">Login</h3>
+                    <div class="register-form">
+                        <div class="col-md-11">
+                            <form method="POST" action="{{ route('login') }}">
+                                @csrf
+                                <div class="form-group">
+                                    <input placeholder="Email *" id="email" type="email" class="form-control @error('email') is-invalid @enderror" name="email" value="{{ old('email') ? old('email') : 'admin@gmail.com' }}" required autocomplete="email" autofocus>
+
+                                    @error('email')
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                    @enderror
+                                </div>
+                                <div class="form-group">
+
+                                    <input placeholder="Password *" id="password" type="password" class="form-control @error('password') is-invalid @enderror" name="password" value="{{ old('email') ? '' : 'admin' }}" required autocomplete="current-password">
+
+                                    @error('password')
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                    @enderror
+                                </div>
+                                <div class="form-group row">
+                                    <div class="col-md-6">
+                                        <div class="form-check">
+                                            <input class="form-check-input" type="checkbox" name="remember" id="remember" {{ old('remember') ? 'checked' : '' }}>
+
+                                            <label class="form-check-label" for="remember">
+                                                {{ __('Remember Me') }}
+                                            </label>
+                                        </div>
+                                    </div>
+                                </div> 
+ 
+                                <button type="submit" class="btnRegister">
+                                    {{ __('Login') }}
+                                </button>
+                            </form>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-4 register-left">
+            <img src="https://i.imgur.com/HJhMiE3.png" alt="employees" />
+            <h3>Welcome to Axis</h3>
+            <p>Employee Management System </p>
+            <p>Laravel 7 - adminlte 3</p>
+        </div>
+    </div>
+</div> 
+
+
 <style>
     body {
         padding: 0;
@@ -135,75 +196,5 @@
         }
     }
 </style>
-<div class="container register">
-    <div class="row">
-        <div class="col-md-6 register-right">
-            <div class="tab-content" id="myTabContent">
-                <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
-                    <h3 class="register-heading">Login</h3>
-                    <div class="register-form">
-                        <div class="col-md-11">
-                            <form method="POST" action="{{ route('login') }}">
-                                @csrf
-                                <div class="form-group">
-                                    <input placeholder="Email *" id="email" type="email" class="form-control @error('email') is-invalid @enderror" name="email" value="{{ old('email') ? old('email') : 'admin@gmail.com' }}" required autocomplete="email" autofocus>
-
-                                    @error('email')
-                                    <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $message }}</strong>
-                                    </span>
-                                    @enderror
-                                </div>
-                                <div class="form-group">
-
-                                    <input placeholder="Password *" id="password" type="password" class="form-control @error('password') is-invalid @enderror" name="password" value="{{ old('email') ? '' : 'admin' }}" required autocomplete="current-password">
-
-                                    @error('password')
-                                    <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $message }}</strong>
-                                    </span>
-                                    @enderror
-                                </div>
-                                <div class="form-group row">
-                                    <div class="col-md-6">
-                                        <div class="form-check">
-                                            <input class="form-check-input" type="checkbox" name="remember" id="remember" {{ old('remember') ? 'checked' : '' }}>
-
-                                            <label class="form-check-label" for="remember">
-                                                {{ __('Remember Me') }}
-                                            </label>
-                                        </div>
-                                    </div>
-                                </div>
-
-                                <div class="form-group row mb-0">
-                                    @if (Route::has('password.request'))
-                                    <a class="btn btn-link" href="{{ route('password.request') }}">
-                                        {{ __('Forgot Your Password?') }}
-                                    </a>
-                                    @endif
-                                </div>
-
-                                <!-- <input type="submit" class="btnRegister" value="Login" /> -->
-                                <button type="submit" class="btnRegister">
-                                    {{ __('Login') }}
-                                </button>
-                            </form>
-
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <div class="col-md-4 register-left">
-            <img src="https://i.imgur.com/HJhMiE3.png" alt="employees" />
-            <h3>Welcome to Axis</h3>
-            <p>Employee Management System </p>
-            <p>Laravel 7 - adminlte 3</p>
-        </div>
-    </div>
-</div>
-
-
 @endsection
+

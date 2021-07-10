@@ -7,15 +7,12 @@
     <div class="row">
         <div class="col-md-3">
             <x-adminlte-card theme="purple" theme-mode="outline">
-
                 <div class="text-center">
                     <a href="#">
                         <img class="profile-user-img elevation-2 img-fluid img-circle" src="/storage/images/{{($user->avatar) ? $user->avatar:'user.png'}}" alt="img" data-toggle="modal" data-target="#view" />
                     </a>
                 </div>
-
                 <h3 class="profile-username text-center">{{$user->firstName.' '.$user->lastName}}</h3>
-
                 <p class="text-muted text-center ">{{$user->position->name}}</p>
                 @if(auth()->user()->id==$user->id)
                 <a href="#" data-toggle="modal" data-target="#view">
@@ -53,12 +50,10 @@
 
 
             @if($user->course.$user->city.$user->skill)
-            <!-- About Me Box -->
             <div class="card card-purple">
                 <div class="card-header">
                     <h3 class="card-title">About Me</h3>
                 </div>
-                <!-- /.card-header -->
                 <div class="card-body">
                     @if($user->course)
                     <strong><i class="fas fa-book mr-1"></i> Education</strong>
@@ -88,7 +83,6 @@
                         Profile
                     </h3>
                 </div>
-                <!-- /.card-header -->
                 <div class="card-body">
                     <dl class="row">
 
@@ -102,7 +96,6 @@
                         <dt class="col-sm-4">Email</dt>
                         <dd class="col-sm-8">{{$user->email}}</dd>
 
-                        <!-- <dd class="col-sm-8 offset-sm-4">Donec id elit non mi porta gravida at eget metus.</dd> -->
                         @if($user->phoneNumber)
                         <dt class="col-sm-4">Phone number</dt>
                         <dd class="col-sm-8">{{$user->phoneNumber}}</dd>
@@ -154,22 +147,9 @@
                         @endif
                     </dl>
                 </div>
-                <!-- /.card-body -->
             </div>
         </div>
 
     </div>
 </div>
 @stop
-
-<!-- 
-@ section('css')
-<link rel="stylesheet" href="/css/admin_custom.css">
-
-@ stop
-
-@ section('js')
-<script>
-    console.log('Hi!');
-</script>
-@ stop -->

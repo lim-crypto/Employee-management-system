@@ -12,20 +12,24 @@ use Illuminate\Http\Request;
 
 class LeaveController extends Controller
 {
-        public function __construct()
+    public function __construct()
     {
         $this->middleware('auth');
     }
-    public function create() {
-        $user = auth()->user() ;
-        $leave= $user->leave;
+    public function create()
+    {
+        $user = auth()->user();
+        $leave = $user->leave;
         return view('leave.create', compact('user', 'leave'));
     }
-  
+
     public function index()
-    { 
+    {
+        if (auth()->user()->role_id != 1) {
+            return redirect()->back()->with('error', 'You are not authorize to access the page');
+        }
         $leave = Leave::all();
-        $leave = $leave->map(function($leave) {
+        $leave = $leave->map(function ($leave) {
             $user = User::find($leave->user_id);
             $user->department = Department::find($user->department_id)->name;
             $user->position = Position::find($user->position_id)->name;
@@ -44,46 +48,9 @@ class LeaveController extends Controller
 
 
     public function store(Request $request)
-    { 
-           
-        if($request->input('multiple-days') == 'yes') {
-            $this->validate($request, [
-                'reason' => 'required',
-                'description' => 'required',
-                'date_range' => new DateRange
-            ]);
-        } else {
-            $this->validate($request, [
-                'reason' => 'required',
-                'description' => 'required'
-            ]);
-        }
-        
-        $values = [
-            'user_id' => auth()->user()->id,
-            'reason' => $request->input('reason'),
-            'description' => $request->input('description'),
-            'half_day' => $request->input('half-day')
-        ];
-        if($request->input('multiple-days') == 'yes') {
-            [$start, $end] = explode(' - ', $request->input('date_range'));
-            $values['start_date'] = Carbon::parse($start);
-            $values['end_date'] = Carbon::parse($end);
-        } else {
-            $values['start_date'] = Carbon::parse($request->input('date'));
-          
-        }
-        Leave::create($values); 
-        return redirect()->back()->with('message','Request Sent, wait for approval.'); 
-    } 
- 
-    public function show()
-    {  
-    }
- 
-    public function update(Leave $leave, Request $request)
-    { 
-        if($request->input('multiple-days') == 'yes') {
+    {
+
+        if ($request->input('multiple-days') == 'yes') {
             $this->validate($request, [
                 'reason' => 'required',
                 'description' => 'required',
@@ -96,18 +63,49 @@ class LeaveController extends Controller
             ]);
         }
 
-        $values = [ 
+        $values = [
+            'user_id' => auth()->user()->id,
             'reason' => $request->input('reason'),
             'description' => $request->input('description'),
             'half_day' => $request->input('half-day')
         ];
-        if($request->input('multiple-days') == 'yes') {
+        if ($request->input('multiple-days') == 'yes') {
             [$start, $end] = explode(' - ', $request->input('date_range'));
             $values['start_date'] = Carbon::parse($start);
             $values['end_date'] = Carbon::parse($end);
         } else {
             $values['start_date'] = Carbon::parse($request->input('date'));
-          
+        }
+        Leave::create($values);
+        return redirect()->back()->with('message', 'Request Sent, wait for approval.');
+    } 
+
+    public function update(Leave $leave, Request $request)
+    {
+        if ($request->input('multiple-days') == 'yes') {
+            $this->validate($request, [
+                'reason' => 'required',
+                'description' => 'required',
+                'date_range' => new DateRange
+            ]);
+        } else {
+            $this->validate($request, [
+                'reason' => 'required',
+                'description' => 'required'
+            ]);
+        }
+
+        $values = [
+            'reason' => $request->input('reason'),
+            'description' => $request->input('description'),
+            'half_day' => $request->input('half-day')
+        ];
+        if ($request->input('multiple-days') == 'yes') {
+            [$start, $end] = explode(' - ', $request->input('date_range'));
+            $values['start_date'] = Carbon::parse($start);
+            $values['end_date'] = Carbon::parse($end);
+        } else {
+            $values['start_date'] = Carbon::parse($request->input('date'));
         }
 
         $leave->update($values);
@@ -115,8 +113,8 @@ class LeaveController extends Controller
     }
 
     public function updateStatus(Leave $leave, Request $request)
-    { 
-        $leave->update(['status' => $request->status ]  );
+    {
+        $leave->update(['status' => $request->status]);
         return redirect()->back()->with('message', 'Edit Saved!');
     }
 }

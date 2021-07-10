@@ -3,9 +3,8 @@
  <?php $__env->startSection('title', 'Employee'); ?>
 
  <?php $__env->startSection('content'); ?>
- 
- <?php $__env->startSection('plugins.Datatables', true); ?>
 
+ <?php $__env->startSection('plugins.Datatables', true); ?>
 
  
  <?php
@@ -21,17 +20,16 @@
 
  
 
- <!-- "collapsed" -->
  <?php if(auth()->user()->role_id==1): ?>
 
-  <?php if (isset($component)) { $__componentOriginald4c8f106e1e33ab85c5d037c2504e2574c1b0975 = $component; } ?>
-<?php $component = $__env->getContainer()->make(App\View\Components\Alert::class, []); ?>
-<?php $component->withName('alert'); ?>
+  <?php if (isset($component)) { $__componentOriginalc254754b9d5db91d5165876f9d051922ca0066f4 = $component; } ?>
+<?php $component = $__env->getContainer()->make(Illuminate\View\AnonymousComponent::class, ['view' => 'components.alerts','data' => []]); ?>
+<?php $component->withName('alerts'); ?>
 <?php if ($component->shouldRender()): ?>
 <?php $__env->startComponent($component->resolveView(), $component->data()); ?>
-<?php $component->withAttributes([]); ?> <?php if (isset($__componentOriginald4c8f106e1e33ab85c5d037c2504e2574c1b0975)): ?>
-<?php $component = $__componentOriginald4c8f106e1e33ab85c5d037c2504e2574c1b0975; ?>
-<?php unset($__componentOriginald4c8f106e1e33ab85c5d037c2504e2574c1b0975); ?>
+<?php $component->withAttributes([]); ?> <?php if (isset($__componentOriginalc254754b9d5db91d5165876f9d051922ca0066f4)): ?>
+<?php $component = $__componentOriginalc254754b9d5db91d5165876f9d051922ca0066f4; ?>
+<?php unset($__componentOriginalc254754b9d5db91d5165876f9d051922ca0066f4); ?>
 <?php endif; ?>
 <?php echo $__env->renderComponent(); ?>
 <?php endif; ?> 
@@ -52,11 +50,9 @@
          <tr>
              <td> <?php echo e($user->id); ?> </td>
              <td>
-             
-                     <img class="profile-user-img elevation-2 img-fluid img-circle" src="/storage/images/<?php echo e(($user->avatar) ? $user->avatar:'user.png'); ?>" alt="img">
-            
+                 <img class="profile-user-img elevation-2 img-fluid img-circle" src="/storage/images/<?php echo e(($user->avatar) ? $user->avatar:'user.png'); ?>" alt="img">
              </td>
-             <td> <?php echo e($user->firstName.' '.$user->lastName); ?></td> 
+             <td> <?php echo e($user->firstName.' '.$user->lastName); ?></td>
              <td> <?php echo e($user->position->name); ?></td>
              <td>
                  <nobr>
@@ -95,54 +91,54 @@
                  <dd class="col-sm-6"><?php echo e($user->email); ?></dd>
 
                  <?php if($user->phoneNumber): ?>
-                        <dt class="col-sm-6">Phone number</dt>
-                        <dd class="col-sm-6"><?php echo e($user->phoneNumber); ?></dd>
-                        <?php endif; ?>
+                 <dt class="col-sm-6">Phone number</dt>
+                 <dd class="col-sm-6"><?php echo e($user->phoneNumber); ?></dd>
+                 <?php endif; ?>
 
-                        <?php if($user->city): ?>
-                        <dt class="col-sm-6">Address</dt>
-                        <dd class="col-sm-6"><?php echo e($user->houseNumber.', '.$user->street.', '.$user->brgy.', '.$user->city.', '.$user->province.', '.$user->country); ?></dd>
-                        <?php endif; ?>
+                 <?php if($user->city): ?>
+                 <dt class="col-sm-6">Address</dt>
+                 <dd class="col-sm-6"><?php echo e($user->houseNumber.', '.$user->street.', '.$user->brgy.', '.$user->city.', '.$user->province.', '.$user->country); ?></dd>
+                 <?php endif; ?>
 
-                        <?php if($user->dob): ?>
-                        <dt class="col-sm-6">Birthday</dt>
-                        <dd class="col-sm-6"><?php echo e($user->dob); ?></dd>
-                        <?php endif; ?>
+                 <?php if($user->dob): ?>
+                 <dt class="col-sm-6">Birthday</dt>
+                 <dd class="col-sm-6"><?php echo e($user->dob); ?></dd>
+                 <?php endif; ?>
 
-                        <?php if($user->gender): ?>
-                        <dt class="col-sm-6">Gender</dt>
-                        <dd class="col-sm-6"><?php echo e($user->gender); ?></dd>
-                        <?php endif; ?>
+                 <?php if($user->gender): ?>
+                 <dt class="col-sm-6">Gender</dt>
+                 <dd class="col-sm-6"><?php echo e($user->gender); ?></dd>
+                 <?php endif; ?>
 
-                        <?php if($user->civilStatus): ?>
-                        <dt class="col-sm-6">Civil Status</dt>
-                        <dd class="col-sm-6"><?php echo e($user->civilStatus); ?></dd>
-                        <?php endif; ?>
+                 <?php if($user->civilStatus): ?>
+                 <dt class="col-sm-6">Civil Status</dt>
+                 <dd class="col-sm-6"><?php echo e($user->civilStatus); ?></dd>
+                 <?php endif; ?>
 
-                        <?php if($user->course): ?>
-                        <dt class="col-sm-6">Education</dt>
-                        <dd class="col-sm-6"><?php echo e($user->course.' '.$user->school); ?></dd>
-                        <?php endif; ?>
+                 <?php if($user->course): ?>
+                 <dt class="col-sm-6">Education</dt>
+                 <dd class="col-sm-6"><?php echo e($user->course.' '.$user->school); ?></dd>
+                 <?php endif; ?>
 
-                        <?php if($user->certificate): ?>
-                        <dd class="col-sm-6 offset-sm-6"><?php echo e($user->certificate); ?></dd>
-                        <?php endif; ?>
+                 <?php if($user->certificate): ?>
+                 <dd class="col-sm-6 offset-sm-6"><?php echo e($user->certificate); ?></dd>
+                 <?php endif; ?>
 
-                        <?php if($user->skill): ?>
-                        <dt class="col-sm-6">Skill</dt>
-                        <dd class="col-sm-6"><?php echo e($user->skill); ?></dd>
-                        <?php endif; ?>
+                 <?php if($user->skill): ?>
+                 <dt class="col-sm-6">Skill</dt>
+                 <dd class="col-sm-6"><?php echo e($user->skill); ?></dd>
+                 <?php endif; ?>
 
-                        <?php if($user->ename): ?>
-                        <dt class="col-sm-6">Emergency Contact</dt>
-                        <dd class="col-sm-6"><?php echo e($user->ename .' ('.$user->relationship.')'); ?></dd>
-                        <?php endif; ?>
+                 <?php if($user->ename): ?>
+                 <dt class="col-sm-6">Emergency Contact</dt>
+                 <dd class="col-sm-6"><?php echo e($user->ename .' ('.$user->relationship.')'); ?></dd>
+                 <?php endif; ?>
 
-                        <?php if($user->ephone): ?>
-                        <dd class="col-sm-6 offset-sm-6"><?php echo e($user->ephone); ?></dd>
-                        <dd class="col-sm-6 offset-sm-6"><?php echo e($user->eFullAddress); ?></dd>
-                        <?php endif; ?>
-      
+                 <?php if($user->ephone): ?>
+                 <dd class="col-sm-6 offset-sm-6"><?php echo e($user->ephone); ?></dd>
+                 <dd class="col-sm-6 offset-sm-6"><?php echo e($user->eFullAddress); ?></dd>
+                 <?php endif; ?>
+
              </dl>
           <?php if (isset($__componentOriginal3170ce38bba9a254ea7cdfc3b7aa9def8f17c1f0)): ?>
 <?php $component = $__componentOriginal3170ce38bba9a254ea7cdfc3b7aa9def8f17c1f0; ?>
@@ -194,7 +190,6 @@
                              </div>
                              <div class="form-group">
                                  <label for="">Role</label>
-                                 <!-- <input type="text" class="form-control" name="role_id" id="" placeholder="Enter role"> -->
                                  <select class="form-control" name="role_id">
                                      <option value="" disabled selected>Select Role</option>
                                      <?php $__currentLoopData = $data['role']; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $r): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
@@ -203,9 +198,7 @@
                                  </select>
                              </div>
                          </div>
-                         <!-- /.card-body -->
                      </div>
-                     <!-- /.card -->
                  </div>
                  <div class="card card-purple">
                      <div class="card-header">
@@ -252,9 +245,7 @@
                                  </select>
                              </div>
                          </div>
-                         <!-- /.card-body -->
                      </div>
-                     <!-- /.card -->
                  </div>
                  <div class="card card-purple">
                      <div class="card-header">
@@ -290,11 +281,6 @@
                                  <label for="">Barangay</label>
                                  <input type="text" class="form-control" name="brgy" value="<?php echo e(old('brgy')?old('brgy'):$user->brgy); ?>" id="" placeholder="Enter Barangay">
                              </div>
-
-                             <!-- <div class="form-group">
-                                <label for="">Full Address</label>
-                                <textarea type="text" class="form-control" id="" placeholder="Enter full address (House no., Street, Barangay, City, Province)" rows="3"></textarea>
-                            </div> -->
                          </div>
                          <div class="col-md-6">
 
@@ -310,10 +296,6 @@
                                  <label for="">Country</label>
                                  <input type="text" class="form-control" name="country" value="<?php echo e(old('country')?old('country'):$user->country); ?>" id="" placeholder="Enter Country" value="Philippines">
                              </div>
-                             <!-- <div class="form-group">
-                                <label for="">Full Address</label>
-                                <textarea type="text" class="form-control" id="" placeholder="Enter full address (House no., Street, Barangay, City, Province)" rows="3"></textarea>
-                            </div> -->
                          </div>
                      </div>
 
@@ -338,24 +320,22 @@
 
                              <div class="form-group ">
                                  <label for="">Certificate Level</label>
-                                 <select class="form-control" name="certificate" id="gender">    
-                                    <option id="<?php echo e($c=$user->certificate); ?>" value="" disabled <?php echo e((($c)==null ) ? 'selected' : ''); ?> >Certificate Level</option>
-                                    <option <?php echo e((old('certificate')=='HighSchool' ) ? 'selected' : ( ( ($c) =='HighSchool' ) ? 'selected' : '')); ?>>HighSchool Diploma</option>
-                                    <option <?php echo e((old('certificate')=='Undergraduate' ) ? 'selected' : ( ( ($c) =='undergraduate' ) ? 'selected' : '')); ?>>Undergraduate</option>
-                                    <option <?php echo e((old('certificate')=='Graduate' ) ? 'selected' : ( ( ($c) =='Graduate' ) ? 'selected' : '')); ?>>Graduate</option>
-                                    <option <?php echo e((old('certificate')=='Bachelor' ) ? 'selected' : ( ( ($c) =='Bachelor' ) ? 'selected' : '')); ?>>Bachelor</option>
-                                    <option <?php echo e((old('certificate')=='Master' ) ? 'selected' : ( ( ($c) =='Master' ) ? 'selected' : '')); ?>>Master</option>
-                                    <option <?php echo e((old('certificate')=='Doctor' ) ? 'selected' : ( ( ($c) =='Doctor' ) ? 'selected' : '')); ?>>Doctor</option>
-                                </select>
+                                 <select class="form-control" name="certificate" id="gender">
+                                     <option id="<?php echo e($c=$user->certificate); ?>" value="" disabled <?php echo e((($c)==null ) ? 'selected' : ''); ?>>Certificate Level</option>
+                                     <option <?php echo e((old('certificate')=='HighSchool' ) ? 'selected' : ( ( ($c) =='HighSchool' ) ? 'selected' : '')); ?>>HighSchool Diploma</option>
+                                     <option <?php echo e((old('certificate')=='Undergraduate' ) ? 'selected' : ( ( ($c) =='undergraduate' ) ? 'selected' : '')); ?>>Undergraduate</option>
+                                     <option <?php echo e((old('certificate')=='Graduate' ) ? 'selected' : ( ( ($c) =='Graduate' ) ? 'selected' : '')); ?>>Graduate</option>
+                                     <option <?php echo e((old('certificate')=='Bachelor' ) ? 'selected' : ( ( ($c) =='Bachelor' ) ? 'selected' : '')); ?>>Bachelor</option>
+                                     <option <?php echo e((old('certificate')=='Master' ) ? 'selected' : ( ( ($c) =='Master' ) ? 'selected' : '')); ?>>Master</option>
+                                     <option <?php echo e((old('certificate')=='Doctor' ) ? 'selected' : ( ( ($c) =='Doctor' ) ? 'selected' : '')); ?>>Doctor</option>
+                                 </select>
                              </div>
                              <div class="form-group">
                                  <label for="">Skill</label>
                                  <input type="text" class="form-control" name="skill" value="<?php echo e(old('skill')?old('skill'):$user->skill); ?>" id="" placeholder="Enter Skills">
                              </div>
                          </div>
-                         <!-- /.card-body -->
                      </div>
-                     <!-- /.card -->
                  </div>
                  <div class="card card-purple">
                      <div class="card-header">
@@ -383,16 +363,8 @@
                                  <textarea type="text" class="form-control" name="eFullAddress" id="" placeholder="Enter full address (House no., Street, Barangay, City, Province)" rows="3"><?php echo e(old('eFullAddress')?old('eFullAddress'):$user->eFullAddress); ?></textarea>
                              </div>
                          </div>
-                         <!-- /.card-body -->
                      </div>
-                     <!-- /.card -->
                  </div>
-                 <!-- <div class="col-12">
-                     <div class="form-group">
-                         <input type="submit" class="form-control bg-purple" value="Save">
-                     </div>
-                 </div> -->
-
                   <?php $__env->slot('footerSlot'); ?> 
                       <?php if (isset($component)) { $__componentOriginalc48319333d07a1f51a4b3e3733b4d97fe3fcdda3 = $component; } ?>
 <?php $component = $__env->getContainer()->make(JeroenNoten\LaravelAdminLte\Components\Form\Button::class, ['theme' => 'light','label' => 'Cancel']); ?>
@@ -418,19 +390,6 @@
 <?php endif; ?>
 <?php echo $__env->renderComponent(); ?>
 <?php endif; ?> 
-                     <!--  <?php if (isset($component)) { $__componentOriginalc48319333d07a1f51a4b3e3733b4d97fe3fcdda3 = $component; } ?>
-<?php $component = $__env->getContainer()->make(JeroenNoten\LaravelAdminLte\Components\Form\Button::class, ['theme' => 'success','label' => 'Accept']); ?>
-<?php $component->withName('adminlte-button'); ?>
-<?php if ($component->shouldRender()): ?>
-<?php $__env->startComponent($component->resolveView(), $component->data()); ?>
-<?php $component->withAttributes(['class' => 'mr-auto']); ?>
-<?php if (isset($__componentOriginalc48319333d07a1f51a4b3e3733b4d97fe3fcdda3)): ?>
-<?php $component = $__componentOriginalc48319333d07a1f51a4b3e3733b4d97fe3fcdda3; ?>
-<?php unset($__componentOriginalc48319333d07a1f51a4b3e3733b4d97fe3fcdda3); ?>
-<?php endif; ?>
-<?php echo $__env->renderComponent(); ?>
-<?php endif; ?>  -->
-                     <!-- <input type="submit" class="bg-purple" value="Save"> -->
                   <?php $__env->endSlot(); ?>
              </form>
 
@@ -555,19 +514,5 @@
  </div>
 
 
- <?php $__env->stopSection(); ?>
- <?php $__env->startSection('css'); ?>
- <link rel="stylesheet" href="/css/admin_custom.css">
- <?php $__env->stopSection(); ?>
- <?php $__env->startSection('js'); ?>
-
- <script>
-     $(document).ready(function() {
-         $('#dataTable').DataTable({
-             responsive: true,
-             autoWidth: false,
-         });
-     });
- </script>
  <?php $__env->stopSection(); ?>
 <?php echo $__env->make('adminlte::page', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?><?php /**PATH C:\Users\Jerald Lim\Desktop\Employee_management_system\resources\views/users/index.blade.php ENDPATH**/ ?>

@@ -11,8 +11,16 @@ use Illuminate\Support\Facades\DB;
 
 class DashboardController extends Controller
 {
+  public function __construct()
+  {
+      $this->middleware('auth');
+  }
+
   public function index()
   {
+    if(auth()->user()->role_id!=1){
+      return redirect()->back()->with('error', 'You are not authorize to access the page');
+    }
     $employee = User::all()->count();
     $employee - 1; // to exclude the admin
 

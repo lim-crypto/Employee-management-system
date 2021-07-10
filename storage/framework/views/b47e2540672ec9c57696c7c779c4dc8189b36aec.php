@@ -18,9 +18,7 @@
                         <img class="profile-user-img elevation-2 img-fluid img-circle" src="/storage/images/<?php echo e(($user->avatar) ? $user->avatar:'user.png'); ?>" alt="img" data-toggle="modal" data-target="#view" />
                     </a>
                 </div>
-
                 <h3 class="profile-username text-center"><?php echo e($user->firstName.' '.$user->lastName); ?></h3>
-
                 <p class="text-muted text-center "><?php echo e($user->position->name); ?></p>
                 <?php if(auth()->user()->id==$user->id): ?>
                 <a href="#" data-toggle="modal" data-target="#view">
@@ -105,12 +103,10 @@
 
 
             <?php if($user->course.$user->city.$user->skill): ?>
-            <!-- About Me Box -->
             <div class="card card-purple">
                 <div class="card-header">
                     <h3 class="card-title">About Me</h3>
                 </div>
-                <!-- /.card-header -->
                 <div class="card-body">
                     <?php if($user->course): ?>
                     <strong><i class="fas fa-book mr-1"></i> Education</strong>
@@ -142,7 +138,6 @@
                         Profile
                     </h3>
                 </div>
-                <!-- /.card-header -->
                 <div class="card-body">
                     <dl class="row">
 
@@ -156,7 +151,6 @@
                         <dt class="col-sm-4">Email</dt>
                         <dd class="col-sm-8"><?php echo e($user->email); ?></dd>
 
-                        <!-- <dd class="col-sm-8 offset-sm-4">Donec id elit non mi porta gravida at eget metus.</dd> -->
                         <?php if($user->phoneNumber): ?>
                         <dt class="col-sm-4">Phone number</dt>
                         <dd class="col-sm-8"><?php echo e($user->phoneNumber); ?></dd>
@@ -208,7 +202,6 @@
                         <?php endif; ?>
                     </dl>
                 </div>
-                <!-- /.card-body -->
             </div>
         </div>
 
@@ -216,15 +209,4 @@
 </div>
 <?php $__env->stopSection(); ?>
 
-<!-- 
-@ section('css')
-<link rel="stylesheet" href="/css/admin_custom.css">
-
-@ stop
-
-@ section('js')
-<script>
-    console.log('Hi!');
-</script>
-@ stop -->
 <?php echo $__env->make('adminlte::page', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?><?php /**PATH C:\Users\Jerald Lim\Desktop\Employee_management_system\resources\views/users/show.blade.php ENDPATH**/ ?>

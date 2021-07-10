@@ -3,9 +3,8 @@
  @section('title', 'Employee')
 
  @section('content')
- 
- @section('plugins.Datatables', true)
 
+ @section('plugins.Datatables', true)
 
  {{-- Setup data for datatables --}}
  @php
@@ -21,10 +20,9 @@
 
  {{-- Minimal example / fill data using the component slot --}}
 
- <!-- "collapsed" -->
  @if(auth()->user()->role_id==1)
 
- <x-alert></x-alert>
+ <x-alerts></x-alerts>
  <x-adminlte-card title="Employee" theme="purple" icon="fas fa-lg fa-fw fa-users " collapsible>
      <x-adminlte-datatable id="table1" :heads="$heads" theme="ligth" striped hoverable beautify compressed>
          @foreach ($users as $user)
@@ -32,11 +30,9 @@
          <tr>
              <td> {{$user->id }} </td>
              <td>
-             
-                     <img class="profile-user-img elevation-2 img-fluid img-circle" src="/storage/images/{{($user->avatar) ? $user->avatar:'user.png'}}" alt="img">
-            
+                 <img class="profile-user-img elevation-2 img-fluid img-circle" src="/storage/images/{{($user->avatar) ? $user->avatar:'user.png'}}" alt="img">
              </td>
-             <td> {{ $user->firstName.' '.$user->lastName }}</td> 
+             <td> {{ $user->firstName.' '.$user->lastName }}</td>
              <td> {{ $user->position->name }}</td>
              <td>
                  <nobr>
@@ -70,54 +66,54 @@
                  <dd class="col-sm-6">{{$user->email}}</dd>
 
                  @if($user->phoneNumber)
-                        <dt class="col-sm-6">Phone number</dt>
-                        <dd class="col-sm-6">{{$user->phoneNumber}}</dd>
-                        @endif
+                 <dt class="col-sm-6">Phone number</dt>
+                 <dd class="col-sm-6">{{$user->phoneNumber}}</dd>
+                 @endif
 
-                        @if($user->city)
-                        <dt class="col-sm-6">Address</dt>
-                        <dd class="col-sm-6">{{$user->houseNumber.', '.$user->street.', '.$user->brgy.', '.$user->city.', '.$user->province.', '.$user->country}}</dd>
-                        @endif
+                 @if($user->city)
+                 <dt class="col-sm-6">Address</dt>
+                 <dd class="col-sm-6">{{$user->houseNumber.', '.$user->street.', '.$user->brgy.', '.$user->city.', '.$user->province.', '.$user->country}}</dd>
+                 @endif
 
-                        @if($user->dob)
-                        <dt class="col-sm-6">Birthday</dt>
-                        <dd class="col-sm-6">{{$user->dob}}</dd>
-                        @endif
+                 @if($user->dob)
+                 <dt class="col-sm-6">Birthday</dt>
+                 <dd class="col-sm-6">{{$user->dob}}</dd>
+                 @endif
 
-                        @if($user->gender)
-                        <dt class="col-sm-6">Gender</dt>
-                        <dd class="col-sm-6">{{$user->gender}}</dd>
-                        @endif
+                 @if($user->gender)
+                 <dt class="col-sm-6">Gender</dt>
+                 <dd class="col-sm-6">{{$user->gender}}</dd>
+                 @endif
 
-                        @if($user->civilStatus)
-                        <dt class="col-sm-6">Civil Status</dt>
-                        <dd class="col-sm-6">{{$user->civilStatus}}</dd>
-                        @endif
+                 @if($user->civilStatus)
+                 <dt class="col-sm-6">Civil Status</dt>
+                 <dd class="col-sm-6">{{$user->civilStatus}}</dd>
+                 @endif
 
-                        @if($user->course)
-                        <dt class="col-sm-6">Education</dt>
-                        <dd class="col-sm-6">{{$user->course.' '.$user->school}}</dd>
-                        @endif
+                 @if($user->course)
+                 <dt class="col-sm-6">Education</dt>
+                 <dd class="col-sm-6">{{$user->course.' '.$user->school}}</dd>
+                 @endif
 
-                        @if($user->certificate)
-                        <dd class="col-sm-6 offset-sm-6">{{$user->certificate}}</dd>
-                        @endif
+                 @if($user->certificate)
+                 <dd class="col-sm-6 offset-sm-6">{{$user->certificate}}</dd>
+                 @endif
 
-                        @if($user->skill)
-                        <dt class="col-sm-6">Skill</dt>
-                        <dd class="col-sm-6">{{$user->skill}}</dd>
-                        @endif
+                 @if($user->skill)
+                 <dt class="col-sm-6">Skill</dt>
+                 <dd class="col-sm-6">{{$user->skill}}</dd>
+                 @endif
 
-                        @if($user->ename)
-                        <dt class="col-sm-6">Emergency Contact</dt>
-                        <dd class="col-sm-6">{{$user->ename .' ('.$user->relationship.')' }}</dd>
-                        @endif
+                 @if($user->ename)
+                 <dt class="col-sm-6">Emergency Contact</dt>
+                 <dd class="col-sm-6">{{$user->ename .' ('.$user->relationship.')' }}</dd>
+                 @endif
 
-                        @if($user->ephone)
-                        <dd class="col-sm-6 offset-sm-6">{{$user->ephone}}</dd>
-                        <dd class="col-sm-6 offset-sm-6">{{ $user->eFullAddress}}</dd>
-                        @endif
-      
+                 @if($user->ephone)
+                 <dd class="col-sm-6 offset-sm-6">{{$user->ephone}}</dd>
+                 <dd class="col-sm-6 offset-sm-6">{{ $user->eFullAddress}}</dd>
+                 @endif
+
              </dl>
          </x-adminlte-modal>
 
@@ -159,7 +155,6 @@
                              </div>
                              <div class="form-group">
                                  <label for="">Role</label>
-                                 <!-- <input type="text" class="form-control" name="role_id" id="" placeholder="Enter role"> -->
                                  <select class="form-control" name="role_id">
                                      <option value="" disabled selected>Select Role</option>
                                      @foreach($data['role'] as $r)
@@ -168,9 +163,7 @@
                                  </select>
                              </div>
                          </div>
-                         <!-- /.card-body -->
                      </div>
-                     <!-- /.card -->
                  </div>
                  <div class="card card-purple">
                      <div class="card-header">
@@ -217,9 +210,7 @@
                                  </select>
                              </div>
                          </div>
-                         <!-- /.card-body -->
                      </div>
-                     <!-- /.card -->
                  </div>
                  <div class="card card-purple">
                      <div class="card-header">
@@ -255,11 +246,6 @@
                                  <label for="">Barangay</label>
                                  <input type="text" class="form-control" name="brgy" value="{{ old('brgy')?old('brgy'):$user->brgy }}" id="" placeholder="Enter Barangay">
                              </div>
-
-                             <!-- <div class="form-group">
-                                <label for="">Full Address</label>
-                                <textarea type="text" class="form-control" id="" placeholder="Enter full address (House no., Street, Barangay, City, Province)" rows="3"></textarea>
-                            </div> -->
                          </div>
                          <div class="col-md-6">
 
@@ -275,10 +261,6 @@
                                  <label for="">Country</label>
                                  <input type="text" class="form-control" name="country" value="{{ old('country')?old('country'):$user->country }}" id="" placeholder="Enter Country" value="Philippines">
                              </div>
-                             <!-- <div class="form-group">
-                                <label for="">Full Address</label>
-                                <textarea type="text" class="form-control" id="" placeholder="Enter full address (House no., Street, Barangay, City, Province)" rows="3"></textarea>
-                            </div> -->
                          </div>
                      </div>
 
@@ -303,24 +285,22 @@
 
                              <div class="form-group ">
                                  <label for="">Certificate Level</label>
-                                 <select class="form-control" name="certificate" id="gender">    
-                                    <option id="{{$c=$user->certificate}}" value="" disabled {{(($c)==null ) ? 'selected' : ''}} >Certificate Level</option>
-                                    <option {{ (old('certificate')=='HighSchool' ) ? 'selected' : ( ( ($c) =='HighSchool' ) ? 'selected' : '') }}>HighSchool Diploma</option>
-                                    <option {{ (old('certificate')=='Undergraduate' ) ? 'selected' : ( ( ($c) =='undergraduate' ) ? 'selected' : '') }}>Undergraduate</option>
-                                    <option {{ (old('certificate')=='Graduate' ) ? 'selected' : ( ( ($c) =='Graduate' ) ? 'selected' : '') }}>Graduate</option>
-                                    <option {{ (old('certificate')=='Bachelor' ) ? 'selected' : ( ( ($c) =='Bachelor' ) ? 'selected' : '') }}>Bachelor</option>
-                                    <option {{ (old('certificate')=='Master' ) ? 'selected' : ( ( ($c) =='Master' ) ? 'selected' : '') }}>Master</option>
-                                    <option {{ (old('certificate')=='Doctor' ) ? 'selected' : ( ( ($c) =='Doctor' ) ? 'selected' : '') }}>Doctor</option>
-                                </select>
+                                 <select class="form-control" name="certificate" id="gender">
+                                     <option id="{{$c=$user->certificate}}" value="" disabled {{(($c)==null ) ? 'selected' : ''}}>Certificate Level</option>
+                                     <option {{ (old('certificate')=='HighSchool' ) ? 'selected' : ( ( ($c) =='HighSchool' ) ? 'selected' : '') }}>HighSchool Diploma</option>
+                                     <option {{ (old('certificate')=='Undergraduate' ) ? 'selected' : ( ( ($c) =='undergraduate' ) ? 'selected' : '') }}>Undergraduate</option>
+                                     <option {{ (old('certificate')=='Graduate' ) ? 'selected' : ( ( ($c) =='Graduate' ) ? 'selected' : '') }}>Graduate</option>
+                                     <option {{ (old('certificate')=='Bachelor' ) ? 'selected' : ( ( ($c) =='Bachelor' ) ? 'selected' : '') }}>Bachelor</option>
+                                     <option {{ (old('certificate')=='Master' ) ? 'selected' : ( ( ($c) =='Master' ) ? 'selected' : '') }}>Master</option>
+                                     <option {{ (old('certificate')=='Doctor' ) ? 'selected' : ( ( ($c) =='Doctor' ) ? 'selected' : '') }}>Doctor</option>
+                                 </select>
                              </div>
                              <div class="form-group">
                                  <label for="">Skill</label>
                                  <input type="text" class="form-control" name="skill" value="{{ old('skill')?old('skill'):$user->skill }}" id="" placeholder="Enter Skills">
                              </div>
                          </div>
-                         <!-- /.card-body -->
                      </div>
-                     <!-- /.card -->
                  </div>
                  <div class="card card-purple">
                      <div class="card-header">
@@ -348,21 +328,11 @@
                                  <textarea type="text" class="form-control" name="eFullAddress" id="" placeholder="Enter full address (House no., Street, Barangay, City, Province)" rows="3">{{old('eFullAddress')?old('eFullAddress'):$user->eFullAddress }}</textarea>
                              </div>
                          </div>
-                         <!-- /.card-body -->
                      </div>
-                     <!-- /.card -->
                  </div>
-                 <!-- <div class="col-12">
-                     <div class="form-group">
-                         <input type="submit" class="form-control bg-purple" value="Save">
-                     </div>
-                 </div> -->
-
                  <x-slot name="footerSlot">
                      <x-adminlte-button theme="light" label="Cancel" class="mr-auto" data-dismiss="modal" />
                      <x-adminlte-button class="bg-purple" type="submit" label="Save" onclick="event.preventDefault();document.getElementById('form-edit-{{$user->id}}').submit()" />
-                     <!-- <x-adminlte-button class="mr-auto" theme="success" label="Accept"/> -->
-                     <!-- <input type="submit" class="bg-purple" value="Save"> -->
                  </x-slot>
              </form>
 
@@ -420,18 +390,4 @@
  </div>
 
 
- @stop
- @section('css')
- <link rel="stylesheet" href="/css/admin_custom.css">
- @stop
- @section('js')
-
- <script>
-     $(document).ready(function() {
-         $('#dataTable').DataTable({
-             responsive: true,
-             autoWidth: false,
-         });
-     });
- </script>
  @stop

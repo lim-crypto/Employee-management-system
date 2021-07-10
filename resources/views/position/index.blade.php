@@ -10,15 +10,12 @@
 @php
 $heads = [
 'ID',
-'Name',
+'Job title',
 ['label' => 'Actions', 'no-export' => true, 'width' => 5],
 ];
 @endphp
 
 {{-- Minimal example / fill data using the component slot --}}
-
-<!-- "collapsed" -->
-<br><br><br>
 <x-alert></x-alert>
 <x-alerts></x-alerts>
 <div class="card card-purple collapsed-card">
@@ -39,7 +36,7 @@ $heads = [
                     <div class="col-12">
                         <div class="form-group ">
                             <label for="">Add Position</label>
-                            <input type="text" class="form-control" required name="name" value="{{old('name')}}" id="" placeholder="Enter Position Name" >
+                            <input type="text" class="form-control" required name="name" value="{{old('name')}}" id="" placeholder="Enter Position Name">
                         </div>
                     </div>
                     <div class="col-12">
@@ -68,11 +65,11 @@ $heads = [
                     <button class="btn btn-xs btn-default text-purple mx-1 shadow" title="Edit" data-toggle="modal" data-target="#edit{{$p->id}}">
                         <i class="fa fa-lg fa-fw fa-pen"></i>
                     </button>
-             
+
                     <button class="btn btn-xs btn-default text-danger mx-1 shadow" title="Delete" data-toggle="modal" data-target="#delete{{$p->id}}">
                         <i class="fa fa-lg fa-fw fa-trash"></i>
                     </button>
-    
+
                 </nobr>
             </td>
 
@@ -80,7 +77,7 @@ $heads = [
 
         <!-- edit-->
         <x-adminlte-modal id="edit{{$p->id}}" title="Edit Position" theme="purple" icon="fas fa-briefcase" size='md' v-centered disable-animations>
-            <form action="{{route('positions.update', $p->id)}}" method="POST" id="{{'form-edit-'.$p->id}}" >
+            <form action="{{route('positions.update', $p->id)}}" method="POST" id="{{'form-edit-'.$p->id}}">
                 @method('patch')
                 @csrf
 
@@ -90,7 +87,7 @@ $heads = [
                         <input type="text" required class="form-control" name="name" value="{{ old('name')?old('name'):$p->name }}" id="" placeholder="Enter Position Name" required>
                     </div>
 
-                </div> 
+                </div>
                 <x-slot name="footerSlot">
                     <x-adminlte-button theme="light" label="Cancel" class="mr-auto" data-dismiss="modal" />
                     <x-adminlte-button class="bg-purple" type="submit" label="Save" onclick="event.preventDefault();document.getElementById('form-edit-{{$p->id}}').submit()" />
@@ -101,12 +98,10 @@ $heads = [
 
         <!-- delete-->
         <x-adminlte-modal id="delete{{$p->id}}" title="Delete Position?" size="sm" theme="danger" icon="fas fa-briefcase" v-centered scrollable>
-        <div class="text-center">
-                    <small>This action is irreversable</small>
-        <p>Are you sure you want to delete <b> {{$p->name}} </b> </p>
-
-                </div>
-            
+            <div class="text-center">
+                <small>This action is irreversable</small>
+                <p>Are you sure you want to delete <b> {{$p->name}} </b> </p>
+            </div>
             <x-slot name="footerSlot">
                 <x-adminlte-button theme="light" label="Cancel" class="mr-auto" data-dismiss="modal" />
                 <x-adminlte-button theme="danger" label="Delete" onclick="event.preventDefault();document.getElementById('form-delete-{{$p->id}}').submit()" />
@@ -114,7 +109,6 @@ $heads = [
                     @csrf
                     @method('delete')
                 </form>
-       
             </x-slot>
         </x-adminlte-modal>
 
@@ -125,18 +119,4 @@ $heads = [
 
 
 
-@stop
-@section('css')
-<link rel="stylesheet" href="/css/admin_custom.css">
-@stop
-@section('js')
-
-<script>
-    $(document).ready(function() {
-        $('#dataTable').DataTable({
-            responsive: true,
-            autoWidth: false,
-        });
-    });
-</script>
 @stop

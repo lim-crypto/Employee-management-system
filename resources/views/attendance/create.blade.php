@@ -4,19 +4,15 @@
 <h1>Attendance</h1>
 @stop
 @section('content')
-<x-alert></x-alert>
-<!-- Main content -->
+<x-alert></x-alert> 
 <section class="content">
     <div class="container-fluid">
         <div class="row">
-            <div class="col-lg-8 mx-auto">
-                <!-- general form elements -->
+            <div class="col-lg-8 mx-auto"> 
                 <div class="card card-purple">
                     <div class="card-header">
                         <h3 class="card-title">Today's Attendance</h3>
-                    </div>
-                    <!-- /.card-header -->
-                    <!-- form start -->
+                    </div> 
 
                     <form role="form" method="post" action="{{ (   $attendance ? $attendance->registered==0 :
                                                  !$attendance   ) ? route('attendances.store', auth()->user()->id   ) :
@@ -43,13 +39,7 @@
                                         <input type="text" hidden class="form-control text-center" name="entry_location" id="entry_location" value="{{ ($attendance ? $attendance->registered>0 : $attendance) ?  $attendance->entry_location :'' }}" placeholder="Loading location..." readonly />
 
                                     </div>
-                                </div>
-                                <!-- <div class="col-md-3">
-                                    <div class="form-group">
-                                        <label for="entry_ip">Entry IP Address</label>
-                                        <input type="text" class="form-control text-center" id="entry_ip" value="{{ ($attendance ? $attendance->registered>0 : $attendance) ? $attendance->entry_ip : '' }}" name="entry_ip" placeholder="X.X.X.X" disabled />
-                                    </div>
-                                </div> -->
+                                </div> 
                             </div>
                             @if ( ($attendance ? $attendance->registered : $attendance))
                             <div class="row text-center">
@@ -65,20 +55,11 @@
                                         <input type="text" class="form-control text-center" id="exit_loc" value="{{ ($attendance ? $attendance->registered==2 : $attendance) ?  $attendance->exit_location : '' }}" placeholder="..." disabled />
                                         <input type="text" hidden class="form-control text-center" name="exit_location" id="exit_location" value="{{ ($attendance ? $attendance->registered==2 : $attendance) ?  $attendance->exit_location : '' }}" placeholder="..." readonly />
                                     </div>
-                                </div>
-                                <!-- <div class="col-md-3">
-                                    <div class="form-group">
-                                        <label for="exit_ip">Exit IP Address</label>
-                                        <input type="text" class="form-control text-center" id="exit_ip" name="exit_ip" value="{{($attendance ? $attendance->registered==2 : $attendance) ?  $attendance->exit_ip : '' }}" placeholder="X.X.X.X" disabled />
-                                    </div>
-                                </div> -->
+                                </div> 
                             </div>
                             @endif
 
-                        </div>
-                        <!-- /.card-body -->
-
-
+                        </div> 
                         @if ( !($attendance ? $attendance->registered : 0))
                         <div class="card-footer">
                             <button type="submit" class="btn bg-purple  p-1" id="entryBtn" style="font-size:1.2rem; display:none;" onclick="displayNone()">
@@ -101,10 +82,8 @@
 
             </div>
         </div>
-    </div>
-    <!-- /.container-fluid -->
-</section>
-<!-- /.content -->
+    </div> 
+</section> 
 
 @endsection
 
@@ -115,15 +94,12 @@
     function currentTime() {
         const today = new Date();
         let year = today.getFullYear();
-        // let month = ("0" + (today.getMonth() + 1)).slice(-2);
         const months = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
         let month = months[today.getMonth()];
         let day = ("0" + today.getDate()).slice(-2);
         let hour = today.getHours();
         let min = today.getMinutes();
         let sec = today.getSeconds();
-
-
 
         var dateNow = `${month} ${day}, ${year} - ${hour}:${min}:${sec}`;
         if ('{{!( $attendance ? $attendance->entry_location : $attendance) }}') {

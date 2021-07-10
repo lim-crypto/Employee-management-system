@@ -85,10 +85,8 @@
                                 </span>
                                 @enderror
                             </div>
-                        </div>
-                        <!-- /.card-body -->
-                    </div>
-                    <!-- /.card -->
+                        </div> 
+                    </div> 
                 </div>
 
                 <div class="card card-purple">
@@ -123,10 +121,7 @@
                             </div>
                         </div>
                         <div class="col-md-6">
-                            <!-- <div class="form-group">
-                                <label for="">Employee ID</label>
-                                <input type="text" class="form-control" id="" placeholder="Enter employee id">
-                            </div> -->
+                            
                             <div class="form-group">
                                 <label for="">Department</label>
                                 <select class="form-control @error('department_id') is-invalid @enderror" name="department_id">
@@ -203,14 +198,4 @@
     </div>
 </div>
 
-@stop
-
-@section('css')
-<link rel="stylesheet" href="/css/admin_custom.css">
-@stop
-
-@section('js')
-<script>
-    console.log('Hi!');
-</script>
 @stop

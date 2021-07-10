@@ -153,8 +153,7 @@ $heads = [ 'ID','Name','Entry','Time','Location','Exit','Time','Location',
 <?php $__env->stopSection(); ?>
 <?php $__env->startSection('js'); ?>
 
-<script>
-    document.getElementsByClassName('table').style = 'display:none';
+<script> 
     document.getElementById('getDate').addEventListener('submit', getDate);
 
     function getDate(e) {

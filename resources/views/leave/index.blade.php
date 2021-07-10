@@ -16,8 +16,7 @@ $heads = [
 'Status',
 ['label' => 'Actions', 'no-export' => true, 'width' => 5],
 ];
-@endphp
-<br><br><br>
+@endphp 
 <x-alert></x-alert>
 
 <x-adminlte-card title="Leave" theme="purple" icon="fas fa-lg fa-fw fa-calendar-times">
@@ -27,8 +26,7 @@ $heads = [
         <tr>
             <td>{{ $leave->created_at->format('m-d-Y') }}</td>
             <td>{{ $leave->user->firstName.' '.$leave->user->lastName }}</td>
-            <td>{{ $leave->user->position }}</td>
-            <!-- <td>{{ $leave->start_date->format('F d, Y') }}</td> -->
+            <td>{{ $leave->user->position }}</td> 
             <td>{{ $leave->start_date->format('F d, Y') }}
                 @if($leave->end_date)
                 - {{ $leave->end_date->format('F d, Y') }}
@@ -160,17 +158,4 @@ $heads = [
 
 
 @stop
-@section('css')
-<link rel="stylesheet" href="/css/admin_custom.css">
-@stop
-@section('js')
-
-<script>
-    $(document).ready(function() {
-        $('#dataTable').DataTable({
-            responsive: true,
-            autoWidth: false,
-        });
-    });
-</script>
-@stop
+ 

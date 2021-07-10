@@ -44,8 +44,6 @@ class UserRequest extends FormRequest
             'role_id.required' => 'Role is required',
             'position_id.required' => 'Position is required',
             'department_id.required' => 'department is required',
-            // 'password.required'=>'Password Must contain at least 8 or more characters',
-            // 'cPassword.required'=>'Confirm Password Must contain at least 8 or more characters'
         ];
     }
 }

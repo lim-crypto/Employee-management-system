@@ -24,15 +24,11 @@ class AttendanceController extends Controller
     {
         $date = Carbon::create($request->date);
         $users = $this->attendanceByDate($date);
-        // $data['date'] = $date->format('d M, Y'); 
-        // $data['users'] = $users; 
         echo json_encode($users); 
     }
 
-
     public function index(Request $request)
     {
-
         $data = [
             'date' => null
         ];
@@ -60,14 +56,10 @@ class AttendanceController extends Controller
     }
     public function create()
     {
-
         $attendance = Auth::user()->attendance->last();
-
         if ($attendance) {
-            if ($attendance->created_at->format('Y-m-d') != Carbon::now()->format('Y-m-d')) {
-                $attendance->entry_ip = null;
-                $attendance->entry_location = null;
-                $attendance->exit_ip = null;
+            if ($attendance->created_at->format('Y-m-d') != Carbon::now()->format('Y-m-d')) { 
+                $attendance->entry_location = null; 
                 $attendance->exit_location = null;
                 $attendance->registered = 0;
             }
@@ -77,22 +69,20 @@ class AttendanceController extends Controller
     public function store(Request $request)
     {
         $attendance = new Attendance([
-            'user_id' => auth()->user()->id,
-            'entry_ip' => $request->ip(),
+            'user_id' => auth()->user()->id, 
             'entry_location' => $request->entry_location,
             'registered' => 1
         ]);
         $attendance->save();
-        return redirect()->back()->with('message', 'Attendance entry successfully logged');
+        return redirect()->back()->with('message', 'Attendance entry success');
     }
     public function update(Request $request, $attendance_id)
     {
-        $attendance = Attendance::findOrFail($attendance_id);
-        $attendance->exit_ip = $request->ip();
+        $attendance = Attendance::findOrFail($attendance_id); 
         $attendance->exit_location = $request->exit_location;
         $attendance->registered = 2;
         $attendance->save();
-        return redirect()->back()->with('message', 'Attendance exit successfully logout');
+        return redirect()->back()->with('message', 'Attendance exit success');
     }
 
 

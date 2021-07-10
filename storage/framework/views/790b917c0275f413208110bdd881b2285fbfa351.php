@@ -10,15 +10,12 @@
 <?php
 $heads = [
 'ID',
-'Name',
+'Job title',
 ['label' => 'Actions', 'no-export' => true, 'width' => 5],
 ];
 ?>
 
 
-
-<!-- "collapsed" -->
-<br><br><br>
  <?php if (isset($component)) { $__componentOriginald4c8f106e1e33ab85c5d037c2504e2574c1b0975 = $component; } ?>
 <?php $component = $__env->getContainer()->make(App\View\Components\Alert::class, []); ?>
 <?php $component->withName('alert'); ?>
@@ -59,7 +56,7 @@ $heads = [
                     <div class="col-12">
                         <div class="form-group ">
                             <label for="">Add Position</label>
-                            <input type="text" class="form-control" required name="name" value="<?php echo e(old('name')); ?>" id="" placeholder="Enter Position Name" >
+                            <input type="text" class="form-control" required name="name" value="<?php echo e(old('name')); ?>" id="" placeholder="Enter Position Name">
                         </div>
                     </div>
                     <div class="col-12">
@@ -98,11 +95,11 @@ $heads = [
                     <button class="btn btn-xs btn-default text-purple mx-1 shadow" title="Edit" data-toggle="modal" data-target="#edit<?php echo e($p->id); ?>">
                         <i class="fa fa-lg fa-fw fa-pen"></i>
                     </button>
-             
+
                     <button class="btn btn-xs btn-default text-danger mx-1 shadow" title="Delete" data-toggle="modal" data-target="#delete<?php echo e($p->id); ?>">
                         <i class="fa fa-lg fa-fw fa-trash"></i>
                     </button>
-    
+
                 </nobr>
             </td>
 
@@ -115,7 +112,7 @@ $heads = [
 <?php if ($component->shouldRender()): ?>
 <?php $__env->startComponent($component->resolveView(), $component->data()); ?>
 <?php $component->withAttributes([]); ?>
-            <form action="<?php echo e(route('positions.update', $p->id)); ?>" method="POST" id="<?php echo e('form-edit-'.$p->id); ?>" >
+            <form action="<?php echo e(route('positions.update', $p->id)); ?>" method="POST" id="<?php echo e('form-edit-'.$p->id); ?>">
                 <?php echo method_field('patch'); ?>
                 <?php echo csrf_field(); ?>
 
@@ -125,7 +122,7 @@ $heads = [
                         <input type="text" required class="form-control" name="name" value="<?php echo e(old('name')?old('name'):$p->name); ?>" id="" placeholder="Enter Position Name" required>
                     </div>
 
-                </div> 
+                </div>
                  <?php $__env->slot('footerSlot'); ?> 
                      <?php if (isset($component)) { $__componentOriginalc48319333d07a1f51a4b3e3733b4d97fe3fcdda3 = $component; } ?>
 <?php $component = $__env->getContainer()->make(JeroenNoten\LaravelAdminLte\Components\Form\Button::class, ['theme' => 'light','label' => 'Cancel']); ?>
@@ -168,12 +165,12 @@ $heads = [
 <?php if ($component->shouldRender()): ?>
 <?php $__env->startComponent($component->resolveView(), $component->data()); ?>
 <?php $component->withAttributes([]); ?>
-        <div class="text-center">
-                    <small>This action is irreversable</small>
-        <p>Are you sure you want to delete <b> <?php echo e($p->name); ?> </b> </p>
+            <div class="text-center">
+                <small>This action is irreversable</small>
+                <p>Are you sure you want to delete <b> <?php echo e($p->name); ?> </b> </p>
 
-                </div>
-            
+            </div>
+
              <?php $__env->slot('footerSlot'); ?> 
                  <?php if (isset($component)) { $__componentOriginalc48319333d07a1f51a4b3e3733b4d97fe3fcdda3 = $component; } ?>
 <?php $component = $__env->getContainer()->make(JeroenNoten\LaravelAdminLte\Components\Form\Button::class, ['theme' => 'light','label' => 'Cancel']); ?>
@@ -203,7 +200,7 @@ $heads = [
                     <?php echo csrf_field(); ?>
                     <?php echo method_field('delete'); ?>
                 </form>
-       
+
              <?php $__env->endSlot(); ?>
          <?php if (isset($__componentOriginal3170ce38bba9a254ea7cdfc3b7aa9def8f17c1f0)): ?>
 <?php $component = $__componentOriginal3170ce38bba9a254ea7cdfc3b7aa9def8f17c1f0; ?>
@@ -229,19 +226,5 @@ $heads = [
 
 
 
-<?php $__env->stopSection(); ?>
-<?php $__env->startSection('css'); ?>
-<link rel="stylesheet" href="/css/admin_custom.css">
-<?php $__env->stopSection(); ?>
-<?php $__env->startSection('js'); ?>
-
-<script>
-    $(document).ready(function() {
-        $('#dataTable').DataTable({
-            responsive: true,
-            autoWidth: false,
-        });
-    });
-</script>
 <?php $__env->stopSection(); ?>
 <?php echo $__env->make('adminlte::page', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?><?php /**PATH C:\Users\Jerald Lim\Desktop\Employee_management_system\resources\views/position/index.blade.php ENDPATH**/ ?>

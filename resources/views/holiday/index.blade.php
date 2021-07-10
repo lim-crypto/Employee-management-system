@@ -5,12 +5,7 @@
 @section('content')
 @section('plugins.Datatables', true)
 @section('plugins.TempusDominusBs4', true)
-@section('plugins.DateRangePicker', true)
-<script type="text/javascript" src="https://cdn.jsdelivr.net/jquery/latest/jquery.min.js"></script>
-<script type="text/javascript" src="https://cdn.jsdelivr.net/momentjs/latest/moment.min.js"></script>
-<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.min.js"></script>
-<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.css" />
-
+@section('plugins.DateRangePicker', true) 
 {{-- Setup data for datatables --}}
 @php
 
@@ -39,10 +34,6 @@ $heads = [
 {{-- Minimal example / fill data using the component slot --}}
 
 <!-- "collapsed" -->
-<br><br><br>
-
-
-
 <x-alert></x-alert>
 <x-alerts></x-alerts> 
 
@@ -217,9 +208,7 @@ $heads = [
 
 
 
-@stop
-@section('css')
-@stop
+@stop 
 @section('js')
 
 <script>

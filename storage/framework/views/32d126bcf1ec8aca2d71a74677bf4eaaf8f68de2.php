@@ -4,20 +4,7 @@
 <?php $__env->startSection('content_header'); ?>
 <h1>Edit Profile</h1>
 <?php $__env->stopSection(); ?>
-
 <?php $__env->startSection('content'); ?>
-
-<!--  <?php if (isset($component)) { $__componentOriginalc254754b9d5db91d5165876f9d051922ca0066f4 = $component; } ?>
-<?php $component = $__env->getContainer()->make(Illuminate\View\AnonymousComponent::class, ['view' => 'components.alerts','data' => []]); ?>
-<?php $component->withName('alerts'); ?>
-<?php if ($component->shouldRender()): ?>
-<?php $__env->startComponent($component->resolveView(), $component->data()); ?>
-<?php $component->withAttributes([]); ?> <?php if (isset($__componentOriginalc254754b9d5db91d5165876f9d051922ca0066f4)): ?>
-<?php $component = $__componentOriginalc254754b9d5db91d5165876f9d051922ca0066f4; ?>
-<?php unset($__componentOriginalc254754b9d5db91d5165876f9d051922ca0066f4); ?>
-<?php endif; ?>
-<?php echo $__env->renderComponent(); ?>
-<?php endif; ?>   -->
  <?php if (isset($component)) { $__componentOriginald4c8f106e1e33ab85c5d037c2504e2574c1b0975 = $component; } ?>
 <?php $component = $__env->getContainer()->make(App\View\Components\Alert::class, []); ?>
 <?php $component->withName('alert'); ?>
@@ -32,7 +19,7 @@
 <div class="container">
     <div class="row justify-content-center">
         <div class="col-md-8">
-            <form action="<?php echo e(route('users.updatePass', $user->id)); ?>" method="POST">
+            <form action="<?php echo e(route('users.updatePass', auth()->user()->id)); ?>" method="POST">
                 <?php echo method_field('patch'); ?>
                 <?php echo csrf_field(); ?>
 
@@ -40,7 +27,6 @@
                     <div class="card-header">
                         <h3 class="card-title">Change Password</h3>
                     </div>
-
                     <div class="row card-body">
                         <div class="col-12">
                             <div class="form-group">
@@ -116,10 +102,7 @@ unset($__errorArgs, $__bag); ?>
                                 <input type="submit" class="form-control bg-purple" value="Save">
                             </div>
                         </div>
-
-                        <!-- /.card-body -->
                     </div>
-                    <!-- /.card -->
                 </div>
 
             </form>

@@ -16,11 +16,8 @@ $heads = [
 @endphp
 
 {{-- Minimal example / fill data using the component slot --}}
-
-<!-- "collapsed" -->
-<br><br><br>
+<x-alerts></x-alerts>
 <x-alert></x-alert>
-
 <div class="card card-purple collapsed-card">
     <div class="card-header">
         <h3 class="card-title">
@@ -128,18 +125,4 @@ $heads = [
 
 
 
-@stop
-@section('css')
-<link rel="stylesheet" href="/css/admin_custom.css">
-@stop
-@section('js')
-
-<script>
-    $(document).ready(function() {
-        $('#dataTable').DataTable({
-            responsive: true,
-            autoWidth: false,
-        });
-    });
-</script>
-@stop
+@stop 

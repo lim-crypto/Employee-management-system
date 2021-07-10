@@ -10,16 +10,14 @@
 @php
 $heads = [
 'ID',
-'Name',
+'Department',
 ['label' => 'Actions', 'no-export' => true, 'width' => 5],
 ];
 @endphp
 
 {{-- Minimal example / fill data using the component slot --}}
-
-<!-- "collapsed" -->
-<br><br><br>
 <x-alert></x-alert>
+<x-alerts></x-alerts>
 
 <div class="card card-purple collapsed-card">
     <div class="card-header">
@@ -126,18 +124,4 @@ $heads = [
 
 
 
-@stop
-@section('css')
-<link rel="stylesheet" href="/css/admin_custom.css">
-@stop
-@section('js')
-
-<script>
-    $(document).ready(function() {
-        $('#dataTable').DataTable({
-            responsive: true,
-            autoWidth: false,
-        });
-    });
-</script>
-@stop
+@stop 

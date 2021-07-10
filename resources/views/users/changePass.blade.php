@@ -4,15 +4,12 @@
 @section('content_header')
 <h1>Edit Profile</h1>
 @stop
-
 @section('content')
-
-<!-- <x-alerts></x-alerts>  -->
 <x-alert></x-alert>
 <div class="container">
     <div class="row justify-content-center">
         <div class="col-md-8">
-            <form action="{{route('users.updatePass', $user->id)}}" method="POST">
+            <form action="{{route('users.updatePass', auth()->user()->id)}}" method="POST">
                 @method('patch')
                 @csrf
 
@@ -20,7 +17,6 @@
                     <div class="card-header">
                         <h3 class="card-title">Change Password</h3>
                     </div>
-
                     <div class="row card-body">
                         <div class="col-12">
                             <div class="form-group">
@@ -54,10 +50,7 @@
                                 <input type="submit" class="form-control bg-purple" value="Save">
                             </div>
                         </div>
-
-                        <!-- /.card-body -->
                     </div>
-                    <!-- /.card -->
                 </div>
 
             </form>

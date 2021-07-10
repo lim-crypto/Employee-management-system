@@ -6,11 +6,6 @@
 <?php $__env->startSection('plugins.Datatables', true); ?>
 <?php $__env->startSection('plugins.TempusDominusBs4', true); ?>
 <?php $__env->startSection('plugins.DateRangePicker', true); ?>
-<script type="text/javascript" src="https://cdn.jsdelivr.net/jquery/latest/jquery.min.js"></script>
-<script type="text/javascript" src="https://cdn.jsdelivr.net/momentjs/latest/moment.min.js"></script>
-<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.min.js"></script>
-<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.css" />
-
 
 
 <?php
@@ -467,25 +462,13 @@ unset($__errorArgs, $__bag); ?>
 
 
 
-<?php $__env->stopSection(); ?>
-<?php $__env->startSection('css'); ?>
-<link rel="stylesheet" href="/css/admin_custom.css">
-<?php $__env->stopSection(); ?>
-<?php $__env->startSection('js'); ?>
-
-<script>
-    $(document).ready(function() {
-        $('#dataTable').DataTable({
-            responsive: true,
-            autoWidth: false,
-        });
-    });
-
+<?php $__env->stopSection(); ?> 
+<?php $__env->startSection('js'); ?> 
+<script> 
     function showInput() {
         document.getElementById("single-date").classList.toggle("d-none");
         document.getElementById("multiple-date").classList.toggle("d-none");
-        document.getElementById("half-day").classList.toggle("d-none");
-
+        document.getElementById("half-day").classList.toggle("d-none"); 
     }
 </script>
 <?php $__env->stopSection(); ?>

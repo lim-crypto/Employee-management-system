@@ -20,7 +20,8 @@ Route::get('/home', 'HomeController@index')->name('home');
 Route::resource('/dashboard','DashboardController' );
 Route::resource('/users','UserController' );
 Route::get('/users/{user}/employee','UserController@showEmployee')->name('employee');
-Route::get('/users/{user}/changePassword','UserController@changePass')->name('users.changePassword');
+Route::get('/edit','UserController@edit')->name('edit');
+Route::get('/changePassword','UserController@changePass')->name('changePassword');
 Route::patch('/users/{user}/updatePassword','UserController@updatePass')->name('users.updatePass');
 Route::patch('/users/{user}/update','UserController@uploadAvatar')->name('upload');
 
@@ -28,8 +29,6 @@ Route::resource('/attendances','AttendanceController' );
 Route::post('/attendances/view', 'AttendanceController@index')->name('attendances.index');
 Route::post('/attendances/show', 'AttendanceController@show')->name('attendances.show'); 
 Route::get('/getDate', 'AttendanceController@getDate')->name('getDate');
-// Route::post('/attendances/getDate', 'AttendanceController@getDate');
-// Route::post('/attendances/getDate', 'AttendanceController@getDate')->name('attendances.getDate'); 
 
 Route::resource('/positions','PositionController' );
 Route::resource('/departments','DepartmentController' );

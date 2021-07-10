@@ -5,12 +5,7 @@
 <?php $__env->startSection('content'); ?>
 <?php $__env->startSection('plugins.Datatables', true); ?>
 <?php $__env->startSection('plugins.TempusDominusBs4', true); ?>
-<?php $__env->startSection('plugins.DateRangePicker', true); ?>
-<script type="text/javascript" src="https://cdn.jsdelivr.net/jquery/latest/jquery.min.js"></script>
-<script type="text/javascript" src="https://cdn.jsdelivr.net/momentjs/latest/moment.min.js"></script>
-<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.min.js"></script>
-<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.css" />
-
+<?php $__env->startSection('plugins.DateRangePicker', true); ?> 
 
 <?php
 
@@ -39,10 +34,6 @@ $heads = [
 
 
 <!-- "collapsed" -->
-<br><br><br>
-
-
-
  <?php if (isset($component)) { $__componentOriginald4c8f106e1e33ab85c5d037c2504e2574c1b0975 = $component; } ?>
 <?php $component = $__env->getContainer()->make(App\View\Components\Alert::class, []); ?>
 <?php $component->withName('alert'); ?>
@@ -54,16 +45,17 @@ $heads = [
 <?php endif; ?>
 <?php echo $__env->renderComponent(); ?>
 <?php endif; ?> 
-
-<?php if($errors->any()): ?>
-    <div class="alert alert-danger  py-4 px-2 bg-red-400 ">
-        <ul>
-            <?php $__currentLoopData = $errors->all(); $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $error): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
-                <li><?php echo e($error); ?></li>
-            <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
-        </ul>
-    </div>
+ <?php if (isset($component)) { $__componentOriginalc254754b9d5db91d5165876f9d051922ca0066f4 = $component; } ?>
+<?php $component = $__env->getContainer()->make(Illuminate\View\AnonymousComponent::class, ['view' => 'components.alerts','data' => []]); ?>
+<?php $component->withName('alerts'); ?>
+<?php if ($component->shouldRender()): ?>
+<?php $__env->startComponent($component->resolveView(), $component->data()); ?>
+<?php $component->withAttributes([]); ?> <?php if (isset($__componentOriginalc254754b9d5db91d5165876f9d051922ca0066f4)): ?>
+<?php $component = $__componentOriginalc254754b9d5db91d5165876f9d051922ca0066f4; ?>
+<?php unset($__componentOriginalc254754b9d5db91d5165876f9d051922ca0066f4); ?>
 <?php endif; ?>
+<?php echo $__env->renderComponent(); ?>
+<?php endif; ?>  
 
 <?php if(auth()->user()->role_id==1): ?>
 <div class="card card-purple collapsed-card">
@@ -362,9 +354,7 @@ $heads = [
 
 
 
-<?php $__env->stopSection(); ?>
-<?php $__env->startSection('css'); ?>
-<?php $__env->stopSection(); ?>
+<?php $__env->stopSection(); ?> 
 <?php $__env->startSection('js'); ?>
 
 <script>

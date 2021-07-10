@@ -14,8 +14,7 @@ use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Facades\Hash;
 
 class UserController extends Controller
-{
-
+{ 
     public function __construct()
     {
         $this->middleware('auth');
@@ -68,9 +67,9 @@ class UserController extends Controller
             return  redirect()->back()->with('error', 'Password do not match');
         }
     }
-    public function edit(User $user)
+    public function edit()
     {
-        $user = auth()->user(); // re-asign the real user
+        $user = auth()->user();
         return view('users.edit', compact('user'));
     }
     public function showEmployee(User $user)
@@ -85,12 +84,10 @@ class UserController extends Controller
 
     public function uploadAvatar(User $user,  Request $request)
     {
-
         if ($request->hasFile('image')) {
             if ($user->avatar) {
                 Storage::delete('/public/images/' . $user->avatar);
-            }
-
+            } 
             $filename = $request->image->getClientOriginalName();
             $request->image->storeAs('images', $filename, 'public');
             $user->update(['avatar' => $filename]);
@@ -100,31 +97,24 @@ class UserController extends Controller
     }
 
     public function update(User $user, Request $request)
-    {
-
-        // dd($request->all());
+    { 
         $this->validate($request, [
             'firstName' => ['required', 'string', 'max:255'],
             'lastName' => ['required', 'string', 'max:255'],
             'dob' => ['required', 'string', 'max:255'],
-            'gender' => ['required'],
-            // 'email' => ['required', 'string', 'email', 'max:255', 'unique:users'], // cannot update// disabled
+            'gender' => ['required'], 
             'avatar' => 'image|nullable',
         ]);
         $user->update($request->all());
         return redirect()->back()->with('message', 'Edit Saved!');
     }
 
-    public function changePass(User $user)
+    public function changePass()
     {
-        return view('users.changePass', compact('user'));
+        return view('users.changePass');
     }
     public function updatePass(User $user, Request $request)
-    {
-
-
-
-
+    { 
         $this->validate($request, [
             'password' => 'required',
             'newPassword' =>  'required',

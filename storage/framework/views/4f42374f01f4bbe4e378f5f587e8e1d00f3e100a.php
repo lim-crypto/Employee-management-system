@@ -4,10 +4,7 @@
 <?php $__env->startSection('plugins.Datatables', true); ?>
 <?php $__env->startSection('plugins.TempusDominusBs4', true); ?>
 <?php $__env->startSection('plugins.DateRangePicker', true); ?>
-<script type="text/javascript" src="https://cdn.jsdelivr.net/jquery/latest/jquery.min.js"></script>
-<script type="text/javascript" src="https://cdn.jsdelivr.net/momentjs/latest/moment.min.js"></script>
-<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.min.js"></script>
-<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.css" />
+
 
 <?php
 $heads = [ 
@@ -76,7 +73,7 @@ $heads = [
 <?php $__env->startComponent($component->resolveView(), $component->data()); ?>
 <?php $component->withAttributes([]); ?>
      <?php if (isset($component)) { $__componentOriginal5c3a95af394031b1bfa79f2f00cd6019494000a3 = $component; } ?>
-<?php $component = $__env->getContainer()->make(JeroenNoten\LaravelAdminLte\Components\Tool\Datatable::class, ['id' => 'table1','heads' => $heads,'theme' => 'ligth','striped' => true,'hoverable' => true,'beautify' => true,'compressed' => true]); ?>
+<?php $component = $__env->getContainer()->make(JeroenNoten\LaravelAdminLte\Components\Tool\Datatable::class, ['id' => 'table1','heads' => $heads,'theme' => 'ligth','striped' => true,'hoverable' => true,'compressed' => true]); ?>
 <?php $component->withName('adminlte-datatable'); ?>
 <?php if ($component->shouldRender()): ?>
 <?php $__env->startComponent($component->resolveView(), $component->data()); ?>
@@ -132,11 +129,11 @@ $heads = [
             <?php else: ?>
                 <td><?php echo e($attendance->created_at->format('m-d-Y')); ?></td>
                 <td>
-                    <h5 class="text-center"><span class="badge badge-pill badge-warning">Half Day</span> </h5>
+                    <h5 class="text-center"><span class="badge badge-pill badge-success">Present</span> </h5>
                 </td>
                 <td><?php echo e($attendance->created_at->format('H:i:s')); ?></td>
                 <td><?php echo e($attendance->entry_location); ?></td>
-                <td>No entry</td>
+                <td>  <h5 class="text-center"><span class="badge badge-pill badge-warning">No entry</span> </h5></td>
                 <td>No entry</td>
             <?php endif; ?>
         </tr>
@@ -158,10 +155,7 @@ $heads = [
 
 
 
-<?php $__env->stopSection(); ?>
-<?php $__env->startSection('css'); ?>
-<?php $__env->stopSection(); ?>
-
+<?php $__env->stopSection(); ?> 
 
  
 <?php echo $__env->make('adminlte::page', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?><?php /**PATH C:\Users\Jerald Lim\Desktop\Employee_management_system\resources\views/attendance/show.blade.php ENDPATH**/ ?>

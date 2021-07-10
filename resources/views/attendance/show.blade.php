@@ -4,10 +4,7 @@
 @section('plugins.Datatables', true)
 @section('plugins.TempusDominusBs4', true)
 @section('plugins.DateRangePicker', true)
-<script type="text/javascript" src="https://cdn.jsdelivr.net/jquery/latest/jquery.min.js"></script>
-<script type="text/javascript" src="https://cdn.jsdelivr.net/momentjs/latest/moment.min.js"></script>
-<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.min.js"></script>
-<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.css" />
+
 {{-- Setup data for datatables --}}
 @php
 $heads = [ 
@@ -60,7 +57,7 @@ $heads = [
 </div>
 
 <x-adminlte-card>
-    <x-adminlte-datatable id="table1" :heads="$heads" theme="ligth" striped hoverable beautify compressed>
+    <x-adminlte-datatable id="table1" :heads="$heads" theme="ligth" striped hoverable compressed>
 
         @foreach($attendances as $index => $attendance)
         <tr>
@@ -112,11 +109,11 @@ $heads = [
             @else
                 <td>{{ $attendance->created_at->format('m-d-Y') }}</td>
                 <td>
-                    <h5 class="text-center"><span class="badge badge-pill badge-warning">Half Day</span> </h5>
+                    <h5 class="text-center"><span class="badge badge-pill badge-success">Present</span> </h5>
                 </td>
                 <td>{{ $attendance->created_at->format('H:i:s') }}</td>
                 <td>{{ $attendance->entry_location }}</td>
-                <td>No entry</td>
+                <td>  <h5 class="text-center"><span class="badge badge-pill badge-warning">No entry</span> </h5></td>
                 <td>No entry</td>
             @endif
         </tr>
@@ -128,9 +125,6 @@ $heads = [
 
 
 
-@stop
-@section('css')
-@stop
-
+@stop 
 
  

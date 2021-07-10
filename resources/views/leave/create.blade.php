@@ -6,11 +6,6 @@
 @section('plugins.Datatables', true)
 @section('plugins.TempusDominusBs4', true)
 @section('plugins.DateRangePicker', true)
-<script type="text/javascript" src="https://cdn.jsdelivr.net/jquery/latest/jquery.min.js"></script>
-<script type="text/javascript" src="https://cdn.jsdelivr.net/momentjs/latest/moment.min.js"></script>
-<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.min.js"></script>
-<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.css" />
-
 
 {{-- Setup data for datatables --}}
 @php
@@ -287,25 +282,13 @@ $heads = [
 
 
 
-@stop
-@section('css')
-<link rel="stylesheet" href="/css/admin_custom.css">
-@stop
-@section('js')
-
-<script>
-    $(document).ready(function() {
-        $('#dataTable').DataTable({
-            responsive: true,
-            autoWidth: false,
-        });
-    });
-
+@stop 
+@section('js') 
+<script> 
     function showInput() {
         document.getElementById("single-date").classList.toggle("d-none");
         document.getElementById("multiple-date").classList.toggle("d-none");
-        document.getElementById("half-day").classList.toggle("d-none");
-
+        document.getElementById("half-day").classList.toggle("d-none"); 
     }
 </script>
 @stop

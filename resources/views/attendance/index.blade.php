@@ -29,8 +29,6 @@ $heads = [ 'ID','Name','Entry','Time','Location','Exit','Time','Location',
         </div>
     </div>
     <div class="card-body" style="display: none;">
-        <!-- <form action="{//{ route('attendances.index') }//}" method="POST"  > -->
-        <!-- @ csrf -->
         <form id="getDate">
 
             <div class="card card-purple col-12 col-md-6 mx-auto">
@@ -108,8 +106,7 @@ $heads = [ 'ID','Name','Entry','Time','Location','Exit','Time','Location',
 @stop
 @section('js')
 
-<script>
-    document.getElementsByClassName('table').style = 'display:none';
+<script> 
     document.getElementById('getDate').addEventListener('submit', getDate);
 
     function getDate(e) {
@@ -167,12 +164,6 @@ $heads = [ 'ID','Name','Entry','Time','Location','Exit','Time','Location',
             document.getElementById('table1_wrapper').innerHTML = tbody;
         }
         xhr.send();
-    }
-    $(document).ready(function() {
-        $('#dataTable').DataTable({
-            responsive: true,
-            autoWidth: false,
-        });
-    });
+    } 
 </script>
 @stop
