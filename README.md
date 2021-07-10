@@ -1,3 +1,21 @@
+# Employee Management System
+
+<p>How to use:</p>
+
+* git clone https://github.com/lim-crypto/Employee-management-system.git 
+* composer install
+* create database with a name of employee_management_system
+* create .env file  
+* copy the .env.example and paste to .env
+* php artisan key:generate
+* php artisan migrate --seed
+* php artisan storage:link 
+* php artisan serve
+
+
+
+
+
 <p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400"></a></p>
 
 <p align="center">
