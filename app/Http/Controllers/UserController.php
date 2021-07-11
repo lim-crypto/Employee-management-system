@@ -46,8 +46,7 @@ class UserController extends Controller
         }
     }
     public function store(UserRequest $request)
-    {
-        if ($request->confirmPassword == $request->password) {
+    {  
             User::create([
                 'firstName' => $request->firstName,
                 'middleName' =>  $request->middleName,
@@ -62,10 +61,7 @@ class UserController extends Controller
                 'email' => $request->email,
                 'password' => Hash::make($request->password),
             ]);
-            return redirect(route('users.create'))->with('message', 'New Employee added');
-        } else {
-            return  redirect()->back()->with('error', 'Password do not match');
-        }
+            return redirect(route('users.create'))->with('message', 'New Employee added'); 
     }
     public function edit()
     {

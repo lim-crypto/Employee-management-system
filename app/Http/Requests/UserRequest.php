@@ -31,7 +31,7 @@ class UserRequest extends FormRequest
             'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
             'avatar' => 'image|nullable',
             'password' => ['required', 'string', 'min:8'],
-            'confirmPassword' => ['required', 'string', 'min:8'],
+            'confirmPassword' => ['required', 'string', 'min:8','same:password'],
             'role_id' => 'required',
             'position_id' => 'required',
             'department_id' => 'required',

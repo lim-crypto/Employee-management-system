@@ -168,9 +168,7 @@ $heads = [
             <div class="text-center">
                 <small>This action is irreversable</small>
                 <p>Are you sure you want to delete <b> <?php echo e($p->name); ?> </b> </p>
-
             </div>
-
              <?php $__env->slot('footerSlot'); ?> 
                  <?php if (isset($component)) { $__componentOriginalc48319333d07a1f51a4b3e3733b4d97fe3fcdda3 = $component; } ?>
 <?php $component = $__env->getContainer()->make(JeroenNoten\LaravelAdminLte\Components\Form\Button::class, ['theme' => 'light','label' => 'Cancel']); ?>
@@ -200,7 +198,6 @@ $heads = [
                     <?php echo csrf_field(); ?>
                     <?php echo method_field('delete'); ?>
                 </form>
-
              <?php $__env->endSlot(); ?>
          <?php if (isset($__componentOriginal3170ce38bba9a254ea7cdfc3b7aa9def8f17c1f0)): ?>
 <?php $component = $__componentOriginal3170ce38bba9a254ea7cdfc3b7aa9def8f17c1f0; ?>

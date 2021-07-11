@@ -21,7 +21,7 @@ if (isset($message)) { $__messageOriginal = $message; }
 $message = $__bag->first($__errorArgs[0]); ?> is-invalid <?php unset($message);
 if (isset($__messageOriginal)) { $message = $__messageOriginal; }
 endif;
-unset($__errorArgs, $__bag); ?>" name="email" value="<?php echo e(old('email') ? old('email') : 'admin@gmail.com'); ?>" required autocomplete="email" autofocus>
+unset($__errorArgs, $__bag); ?>" name="email" value="<?php echo e(old('email') ? old('email') : ''); ?>" required autocomplete="email" autofocus>
 
                                     <?php $__errorArgs = ['email'];
 $__bag = $errors->getBag($__errorArgs[1] ?? 'default');
@@ -45,7 +45,7 @@ if (isset($message)) { $__messageOriginal = $message; }
 $message = $__bag->first($__errorArgs[0]); ?> is-invalid <?php unset($message);
 if (isset($__messageOriginal)) { $message = $__messageOriginal; }
 endif;
-unset($__errorArgs, $__bag); ?>" name="password" value="<?php echo e(old('email') ? '' : 'admin'); ?>" required autocomplete="current-password">
+unset($__errorArgs, $__bag); ?>" name="password" value="<?php echo e(old('email') ? '' : ''); ?>" required autocomplete="current-password">
 
                                     <?php $__errorArgs = ['password'];
 $__bag = $errors->getBag($__errorArgs[1] ?? 'default');

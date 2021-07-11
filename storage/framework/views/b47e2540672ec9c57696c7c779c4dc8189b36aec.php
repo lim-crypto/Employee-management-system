@@ -12,7 +12,6 @@
 <?php if ($component->shouldRender()): ?>
 <?php $__env->startComponent($component->resolveView(), $component->data()); ?>
 <?php $component->withAttributes([]); ?>
-
                 <div class="text-center">
                     <a href="#">
                         <img class="profile-user-img elevation-2 img-fluid img-circle" src="/storage/images/<?php echo e(($user->avatar) ? $user->avatar:'user.png'); ?>" alt="img" data-toggle="modal" data-target="#view" />
