@@ -24,23 +24,13 @@ class AttendanceController extends Controller
     {
         $date = Carbon::create($request->date);
         $users = $this->attendanceByDate($date);
-        echo json_encode($users); 
+        echo json_encode($users);
     }
 
-    public function index(Request $request)
+    public function index()
     {
-        $data = [
-            'date' => null
-        ];
-        if ($request->all()) {
-            $date = Carbon::create($request->date);
-            $users = $this->attendanceByDate($date);
-            $data['date'] = $date->format('d M, Y');
-        } else {
-            $users = $this->attendanceByDate(Carbon::now());
-        }
-        $data['users'] = $users;
-        return view('attendance.index')->with($data);
+        $users = $this->attendanceByDate(Carbon::now());
+        return view('attendance.index', compact('users'));
     }
     public function attendanceByDate($date)
     {
@@ -58,8 +48,8 @@ class AttendanceController extends Controller
     {
         $attendance = Auth::user()->attendance->last();
         if ($attendance) {
-            if ($attendance->created_at->format('Y-m-d') != Carbon::now()->format('Y-m-d')) { 
-                $attendance->entry_location = null; 
+            if ($attendance->created_at->format('Y-m-d') != Carbon::now()->format('Y-m-d')) {
+                $attendance->entry_location = null;
                 $attendance->exit_location = null;
                 $attendance->registered = 0;
             }
@@ -69,7 +59,7 @@ class AttendanceController extends Controller
     public function store(Request $request)
     {
         $attendance = new Attendance([
-            'user_id' => auth()->user()->id, 
+            'user_id' => auth()->user()->id,
             'entry_location' => $request->entry_location,
             'registered' => 1
         ]);
@@ -78,7 +68,7 @@ class AttendanceController extends Controller
     }
     public function update(Request $request, $attendance_id)
     {
-        $attendance = Attendance::findOrFail($attendance_id); 
+        $attendance = Attendance::findOrFail($attendance_id);
         $attendance->exit_location = $request->exit_location;
         $attendance->registered = 2;
         $attendance->save();
@@ -125,7 +115,7 @@ class AttendanceController extends Controller
         return view('attendance.show')->with($data);
     }
 
-    
+
     public function get_filtered_attendances($start, $end, $filtered_attendances, $first_day, $count, $leaves, $holidays)
     {
         $found_start = false;

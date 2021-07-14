@@ -17,11 +17,7 @@ $heads = [ 'ID','Name','Entry','Time','Location','Exit','Time','Location',
     <div class="card-header">
         <h3 class="card-title">
             <i class="fas fa-lg fa-fw fa-briefcase  mr-2"></i>
-            @if ($date)
-            Employee attendance on {{ $date }}
-            @else
             Employee attendance
-            @endif
         </h3>
         <div class="card-tools">
             <button type="button" class="btn btn-tool" data-card-widget="collapse">
