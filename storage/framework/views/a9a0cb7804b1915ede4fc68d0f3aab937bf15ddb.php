@@ -116,9 +116,9 @@ $message = $__bag->first($__errorArgs[0]); ?> is-invalid <?php unset($message);
 if (isset($__messageOriginal)) { $message = $__messageOriginal; }
 endif;
 unset($__errorArgs, $__bag); ?>" name="gender" id="gender">
-                                    <option id="<?php echo e($g=$user->gender); ?>" disabled selected>Select gender</option>
-                                    <option value="Male" <?php echo e((old('gender')=='Male' ) ? 'selected' : ( ( ($g) =='Male' ) ? 'selected' : '')); ?>>Male</option>
-                                    <option value="Female" <?php echo e((old('gender')=='Female') ? 'selected'  : ( ( ($g) =='Female' ) ? 'selected' : '' )); ?>>Female</option>
+                                    <option disabled selected>Select gender</option>
+                                    <option value="Male" <?php echo e((old('gender')=='Male' ) ? 'selected' : ( ( $user->gender =='Male' ) ? 'selected' : '')); ?>>Male</option>
+                                    <option value="Female" <?php echo e((old('gender')=='Female') ? 'selected'  : ( ( $user->gender =='Female' ) ? 'selected' : '' )); ?>>Female</option>
                                 </select>
                                 <?php $__errorArgs = ['gender'];
 $__bag = $errors->getBag($__errorArgs[1] ?? 'default');
@@ -143,11 +143,11 @@ $message = $__bag->first($__errorArgs[0]); ?> is-invalid <?php unset($message);
 if (isset($__messageOriginal)) { $message = $__messageOriginal; }
 endif;
 unset($__errorArgs, $__bag); ?>" name="civilStatus" id="gender">
-                                    <option id="<?php echo e($cs=$user->civilStatus); ?>" value="" disabled selected>Select status</option>
-                                    <option <?php echo e((old('civilStatus')=='Single' ) ? 'selected' : ( ( ($cs) =='Single' ) ? 'selected' : '')); ?>>Single</option>
-                                    <option <?php echo e((old('civilStatus')=='Married' ) ? 'selected' : ( ( ($cs) =='Married' ) ? 'selected' : '')); ?>>Married</option>
-                                    <option <?php echo e((old('civilStatus')=='Widowed' ) ? 'selected' : ( ( ($cs) =='Widowed' ) ? 'selected' : '')); ?>>Widowed</option>
-                                    <option <?php echo e((old('civilStatus')=='Divorced' ) ? 'selected' : ( ( ($cs) =='Divorced' ) ? 'selected' : '')); ?>>Divorced</option>
+                                    <option  value="" disabled selected>Select status</option>
+                                    <option <?php echo e((old('civilStatus')=='Single' ) ? 'selected' : ( ( $user->civilStatus =='Single' ) ? 'selected' : '')); ?>>Single</option>
+                                    <option <?php echo e((old('civilStatus')=='Married' ) ? 'selected' : ( ( $user->civilStatus =='Married' ) ? 'selected' : '')); ?>>Married</option>
+                                    <option <?php echo e((old('civilStatus')=='Widowed' ) ? 'selected' : ( ( $user->civilStatus =='Widowed' ) ? 'selected' : '')); ?>>Widowed</option>
+                                    <option <?php echo e((old('civilStatus')=='Divorced' ) ? 'selected' : ( ( $user->civilStatus =='Divorced' ) ? 'selected' : '')); ?>>Divorced</option>
                                 </select>
                                 <?php $__errorArgs = ['civilStatus'];
 $__bag = $errors->getBag($__errorArgs[1] ?? 'default');
@@ -239,13 +239,13 @@ unset($__errorArgs, $__bag); ?>
                             <div class="form-group ">
                                 <label for="">Certificate Level</label>
                                 <select class="form-control" name="certificate" id="gender">
-                                    <option id="<?php echo e($c=$user->certificate); ?>" value="" disabled <?php echo e((($c)==null ) ? 'selected' : ''); ?>>Certificate Level</option>
-                                    <option <?php echo e((old('certificate')=='HighSchool' ) ? 'selected' : ( ( ($c) =='HighSchool' ) ? 'selected' : '')); ?>>HighSchool Diploma</option>
-                                    <option <?php echo e((old('certificate')=='Undergraduate' ) ? 'selected' : ( ( ($c) =='undergraduate' ) ? 'selected' : '')); ?>>Undergraduate</option>
-                                    <option <?php echo e((old('certificate')=='Graduate' ) ? 'selected' : ( ( ($c) =='Graduate' ) ? 'selected' : '')); ?>>Graduate</option>
-                                    <option <?php echo e((old('certificate')=='Bachelor' ) ? 'selected' : ( ( ($c) =='Bachelor' ) ? 'selected' : '')); ?>>Bachelor</option>
-                                    <option <?php echo e((old('certificate')=='Master' ) ? 'selected' : ( ( ($c) =='Master' ) ? 'selected' : '')); ?>>Master</option>
-                                    <option <?php echo e((old('certificate')=='Doctor' ) ? 'selected' : ( ( ($c) =='Doctor' ) ? 'selected' : '')); ?>>Doctor</option>
+                                    <option value="" disabled <?php echo e((($user->certificate)==null ) ? 'selected' : ''); ?>>Certificate Level</option>
+                                    <option <?php echo e((old('certificate')=='HighSchool' ) ? 'selected' : ( ( $user->certificate =='HighSchool' ) ? 'selected' : '')); ?>>HighSchool Diploma</option>
+                                    <option <?php echo e((old('certificate')=='Undergraduate' ) ? 'selected' : ( ( $user->certificate =='undergraduate' ) ? 'selected' : '')); ?>>Undergraduate</option>
+                                    <option <?php echo e((old('certificate')=='Graduate' ) ? 'selected' : ( ( $user->certificate =='Graduate' ) ? 'selected' : '')); ?>>Graduate</option>
+                                    <option <?php echo e((old('certificate')=='Bachelor' ) ? 'selected' : ( ( $user->certificate =='Bachelor' ) ? 'selected' : '')); ?>>Bachelor</option>
+                                    <option <?php echo e((old('certificate')=='Master' ) ? 'selected' : ( ( $user->certificate =='Master' ) ? 'selected' : '')); ?>>Master</option>
+                                    <option <?php echo e((old('certificate')=='Doctor' ) ? 'selected' : ( ( $user->certificate =='Doctor' ) ? 'selected' : '')); ?>>Doctor</option>
                                 </select>
                             </div>
                             <div class="form-group">

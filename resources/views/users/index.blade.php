@@ -18,7 +18,6 @@
 
  @endphp
 
- {{-- Minimal example / fill data using the component slot --}}
 
  @if(auth()->user()->role_id==1)
 
@@ -133,8 +132,8 @@
 
                                  <select class="form-control" name="position_id">
                                      <option value="" disabled selected>Select Position</option>
-                                     @foreach($data['position'] as $p)
-                                     <option value="{{$pp=$p->id}}" id="{{$up=$user->position_id}}" {{  old('position_id')==$pp ? 'selected' :( ($up==$pp) ? 'selected': ''  )}}>{{$p->name}}</option>
+                                     @foreach($data['position'] as $position)
+                                     <option value="{{$position->id}}"  {{  old('position_id')==$position->id ? 'selected' :( ($user->position_id==$position->id) ? 'selected': ''  )}} >{{$position->name}}</option>
                                      @endforeach
                                  </select>
                              </div>
@@ -148,8 +147,8 @@
                                  <label for="">Department</label>
                                  <select class="form-control" name="department_id">
                                      <option value="" disabled selected>Select Department</option>
-                                     @foreach($data['department'] as $d)
-                                     <option value="{{$dd=$d->id}}" id="{{$ud=$user->department_id}}" {{  old('department_id')==$dd ? 'selected' : ( ($ud==$dd) ? 'selected': ''  ) }}>{{$d->name}}</option>
+                                     @foreach($data['department'] as $department)
+                                     <option value="{{$department->id}}" {{  old('department_id')==$department->id ? 'selected' : ( ($user->department_id==$department->id) ? 'selected': ''  ) }}>{{$department->name}}</option>
                                      @endforeach
                                  </select>
                              </div>
@@ -157,8 +156,8 @@
                                  <label for="">Role</label>
                                  <select class="form-control" name="role_id">
                                      <option value="" disabled selected>Select Role</option>
-                                     @foreach($data['role'] as $r)
-                                     <option value="{{$rr=$r->id}}" id="{{$ur=$user->role_id}}" {{  old('role_id')==$rr ? 'selected' : ( ($ur==$rr) ? 'selected': ''  ) }}>{{$r->name}}</option>
+                                     @foreach($data['role'] as $role)
+                                     <option value="{{$role->id}}"  {{  old('role_id')==$role->id ? 'selected' : ( ($user->role_id==$role->id) ? 'selected': ''  ) }}>{{$role->name}}</option>
                                      @endforeach
                                  </select>
                              </div>
@@ -194,19 +193,19 @@
                              <div class="form-group ">
                                  <label for="">Gender</label>
                                  <select class="form-control" name="gender" id="gender">
-                                     <option id="{{$g=$user->gender}}" disabled selected>Select gender</option>
-                                     <option value="Male" {{ (old('gender')=='Male' ) ? 'selected' : ( ( ($g) =='Male' ) ? 'selected' : '') }}>Male</option>
-                                     <option value="Female" {{ (old('gender')=='Female') ? 'selected'  : ( ( ($g) =='Female' ) ? 'selected' : '' ) }}>Female</option>
+                                     <option disabled selected>Select gender</option>
+                                     <option value="Male" {{ (old('gender')=='Male' ) ? 'selected' : ( ( $user->gender =='Male' ) ? 'selected' : '') }}>Male</option>
+                                     <option value="Female" {{ (old('gender')=='Female') ? 'selected'  : ( ( $user->gender =='Female' ) ? 'selected' : '' ) }}>Female</option>
                                  </select>
                              </div>
                              <div class="form-group ">
                                  <label for="">Civil Status</label>
                                  <select class="form-control" name="civilStatus" id="gender">
-                                     <option id="{{$cs=$user->civilStatus}}" value="" disabled selected>Select status</option>
-                                     <option {{ (old('civilStatus')=='Single' ) ? 'selected' : ( ( ($cs) =='Single' ) ? 'selected' : '') }}>Single</option>
-                                     <option {{ (old('civilStatus')=='Married' ) ? 'selected' : ( ( ($cs) =='Married' ) ? 'selected' : '') }}>Married</option>
-                                     <option {{ (old('civilStatus')=='Widowed' ) ? 'selected' : ( ( ($cs) =='Widowed' ) ? 'selected' : '') }}>Widowed</option>
-                                     <option {{ (old('civilStatus')=='Divorced' ) ? 'selected' : ( ( ($cs) =='Divorced' ) ? 'selected' : '') }}>Divorced</option>
+                                     <option  value="" disabled selected>Select status</option>
+                                     <option {{ (old('civilStatus')=='Single' ) ? 'selected' : ( ( $user->civilStatus =='Single' ) ? 'selected' : '') }}>Single</option>
+                                     <option {{ (old('civilStatus')=='Married' ) ? 'selected' : ( ( $user->civilStatus =='Married' ) ? 'selected' : '') }}>Married</option>
+                                     <option {{ (old('civilStatus')=='Widowed' ) ? 'selected' : ( ( $user->civilStatus =='Widowed' ) ? 'selected' : '') }}>Widowed</option>
+                                     <option {{ (old('civilStatus')=='Divorced' ) ? 'selected' : ( ( $user->civilStatus =='Divorced' ) ? 'selected' : '') }}>Divorced</option>
                                  </select>
                              </div>
                          </div>
@@ -286,13 +285,13 @@
                              <div class="form-group ">
                                  <label for="">Certificate Level</label>
                                  <select class="form-control" name="certificate" id="gender">
-                                     <option id="{{$c=$user->certificate}}" value="" disabled {{(($c)==null ) ? 'selected' : ''}}>Certificate Level</option>
-                                     <option {{ (old('certificate')=='HighSchool' ) ? 'selected' : ( ( ($c) =='HighSchool' ) ? 'selected' : '') }}>HighSchool Diploma</option>
-                                     <option {{ (old('certificate')=='Undergraduate' ) ? 'selected' : ( ( ($c) =='undergraduate' ) ? 'selected' : '') }}>Undergraduate</option>
-                                     <option {{ (old('certificate')=='Graduate' ) ? 'selected' : ( ( ($c) =='Graduate' ) ? 'selected' : '') }}>Graduate</option>
-                                     <option {{ (old('certificate')=='Bachelor' ) ? 'selected' : ( ( ($c) =='Bachelor' ) ? 'selected' : '') }}>Bachelor</option>
-                                     <option {{ (old('certificate')=='Master' ) ? 'selected' : ( ( ($c) =='Master' ) ? 'selected' : '') }}>Master</option>
-                                     <option {{ (old('certificate')=='Doctor' ) ? 'selected' : ( ( ($c) =='Doctor' ) ? 'selected' : '') }}>Doctor</option>
+                                     <option  value="" disabled {{($user->certificate==null ) ? 'selected' : ''}}>Select Certificate Level</option>
+                                     <option {{ (old('certificate')=='HighSchool' ) ? 'selected' : ( ( $user->certificate =='HighSchool' ) ? 'selected' : '') }}>HighSchool Diploma</option>
+                                     <option {{ (old('certificate')=='Undergraduate' ) ? 'selected' : ( ( $user->certificate =='Undergraduate' ) ? 'selected' : '') }}>Undergraduate</option>
+                                     <option {{ (old('certificate')=='Graduate' ) ? 'selected' : ( ( $user->certificate =='Graduate' ) ? 'selected' : '') }}>Graduate</option>
+                                     <option {{ (old('certificate')=='Bachelor' ) ? 'selected' : ( ( $user->certificate =='Bachelor' ) ? 'selected' : '') }}>Bachelor</option>
+                                     <option {{ (old('certificate')=='Master' ) ? 'selected' : ( ( $user->certificate =='Master' ) ? 'selected' : '') }}>Master</option>
+                                     <option {{ (old('certificate')=='Doctor' ) ? 'selected' : ( ( $user->certificate =='Doctor' ) ? 'selected' : '') }}>Doctor</option>
                                  </select>
                              </div>
                              <div class="form-group">

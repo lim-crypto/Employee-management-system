@@ -22,7 +22,7 @@
                 <?php if(auth()->user()->id==$user->id): ?>
                 <a href="#" data-toggle="modal" data-target="#view">
                     <i class="fas fa-camera text-purple"> </i>
-                    <small class="text-muted">edit picture</small>
+                    <small class="text-muted">Edit picture</small>
                 </a>
                 <?php endif; ?>
              <?php if (isset($__componentOriginalaed86eb40978352b5500452c639db72fd44b2ec6)): ?>

@@ -12,7 +12,7 @@ class PositionSeeder extends Seeder
      */
     public function run()
     {
-        Position::create(['name' => 'Ceo']);
+        Position::create(['name' => 'CEO']);
         Position::create(['name' => 'Project Manager']);
         Position::create(['name' => 'Fullstack Developer']);
         Position::create(['name' => 'Backend Developer']);

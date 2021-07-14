@@ -17,7 +17,7 @@
                 @if(auth()->user()->id==$user->id)
                 <a href="#" data-toggle="modal" data-target="#view">
                     <i class="fas fa-camera text-purple"> </i>
-                    <small class="text-muted">edit picture</small>
+                    <small class="text-muted">Edit picture</small>
                 </a>
                 @endif
             </x-adminlte-card>

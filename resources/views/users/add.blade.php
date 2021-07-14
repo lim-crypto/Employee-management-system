@@ -100,8 +100,8 @@
 
                                 <select class="form-control @error('position_id') is-invalid @enderror" name="position_id">
                                     <option value="" disabled selected>Select Position</option>
-                                    @foreach($data['position'] as $p)
-                                    <option value="{{$pp=$p->id}}" {{  old('position_id')==$pp ? 'selected' : '' }}>{{$p->name}}</option>
+                                    @foreach($data['position'] as $position)
+                                    <option value="{{$position->id}}" {{  old('position_id')==$position->id ? 'selected' : '' }}>{{$position->name}}</option>
                                     @endforeach
                                 </select>
                                 @error('position_id')
@@ -126,8 +126,8 @@
                                 <label for="">Department</label>
                                 <select class="form-control @error('department_id') is-invalid @enderror" name="department_id">
                                     <option value="" disabled selected>Select Department</option>
-                                    @foreach($data['department'] as $d)
-                                    <option value="{{$dd=$d->id}}" {{  old('department_id')==$dd ? 'selected' : '' }}>{{$d->name}}</option>
+                                    @foreach($data['department'] as $department)
+                                    <option value="{{$department->id}}" {{  old('department_id')==$department->id ? 'selected' : '' }}>{{$department->name}}</option>
                                     @endforeach
                                 </select>
                                 @error('department_id')
@@ -140,8 +140,8 @@
                                 <label for="">Role</label>
                                 <select class="form-control @error('role_id') is-invalid @enderror" name="role_id">
                                     <option value="" disabled selected>Select Role</option>
-                                    @foreach($data['role'] as $r)
-                                    <option value="{{$rr=$r->id}}" {{  old('role_id')==$rr ? 'selected' : '' }}>{{$r->name}}</option>
+                                    @foreach($data['role'] as $role)
+                                    <option value="{{$role->id}}" {{  old('role_id')==$role->id ? 'selected' : '' }}>{{$role->name}}</option>
                                     @endforeach
                                 </select>
                                 @error('role_id')

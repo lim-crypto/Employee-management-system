@@ -78,7 +78,7 @@ class UserSeeder extends Seeder
             [
                 'firstName' => 'Russel',
                 'lastName' => 'Faulmino',
-                'email' => 'russelfaulmino11@gmial.com',
+                'email' => 'russelfaulmino11@gmail.com',
                 'password' => Hash::make('123456789'),
                 'avatar'=>'Russel.png',
                 'role_id' => 2,

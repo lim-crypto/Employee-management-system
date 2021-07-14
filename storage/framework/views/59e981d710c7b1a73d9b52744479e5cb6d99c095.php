@@ -187,8 +187,8 @@ if (isset($__messageOriginal)) { $message = $__messageOriginal; }
 endif;
 unset($__errorArgs, $__bag); ?>" name="position_id">
                                     <option value="" disabled selected>Select Position</option>
-                                    <?php $__currentLoopData = $data['position']; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $p): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
-                                    <option value="<?php echo e($pp=$p->id); ?>" <?php echo e(old('position_id')==$pp ? 'selected' : ''); ?>><?php echo e($p->name); ?></option>
+                                    <?php $__currentLoopData = $data['position']; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $position): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+                                    <option value="<?php echo e($position->id); ?>" <?php echo e(old('position_id')==$position->id ? 'selected' : ''); ?>><?php echo e($position->name); ?></option>
                                     <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
                                 </select>
                                 <?php $__errorArgs = ['position_id'];
@@ -241,8 +241,8 @@ if (isset($__messageOriginal)) { $message = $__messageOriginal; }
 endif;
 unset($__errorArgs, $__bag); ?>" name="department_id">
                                     <option value="" disabled selected>Select Department</option>
-                                    <?php $__currentLoopData = $data['department']; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $d): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
-                                    <option value="<?php echo e($dd=$d->id); ?>" <?php echo e(old('department_id')==$dd ? 'selected' : ''); ?>><?php echo e($d->name); ?></option>
+                                    <?php $__currentLoopData = $data['department']; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $department): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+                                    <option value="<?php echo e($department->id); ?>" <?php echo e(old('department_id')==$department->id ? 'selected' : ''); ?>><?php echo e($department->name); ?></option>
                                     <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
                                 </select>
                                 <?php $__errorArgs = ['department_id'];
@@ -269,8 +269,8 @@ if (isset($__messageOriginal)) { $message = $__messageOriginal; }
 endif;
 unset($__errorArgs, $__bag); ?>" name="role_id">
                                     <option value="" disabled selected>Select Role</option>
-                                    <?php $__currentLoopData = $data['role']; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $r): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
-                                    <option value="<?php echo e($rr=$r->id); ?>" <?php echo e(old('role_id')==$rr ? 'selected' : ''); ?>><?php echo e($r->name); ?></option>
+                                    <?php $__currentLoopData = $data['role']; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $role): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+                                    <option value="<?php echo e($role->id); ?>" <?php echo e(old('role_id')==$role->id ? 'selected' : ''); ?>><?php echo e($role->name); ?></option>
                                     <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
                                 </select>
                                 <?php $__errorArgs = ['role_id'];

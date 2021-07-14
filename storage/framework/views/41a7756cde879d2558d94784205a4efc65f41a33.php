@@ -39,9 +39,11 @@
     
     <?php if(config('adminlte.livewire')): ?>
         <?php if(app()->version() >= 7): ?>
-            @livewireStyles
+            <?php echo \Livewire\Livewire::styles(); ?>
+
         <?php else: ?>
-            <livewire:styles />
+            <?php echo \Livewire\Livewire::styles(); ?>
+
         <?php endif; ?>
     <?php endif; ?>
 
@@ -51,8 +53,8 @@
     
     <?php if(config('adminlte.use_ico_only')): ?>
         <!-- <link rel="shortcut icon" href="<?php echo e(asset('favicons/favicon.ico')); ?>" /> -->
-        <!-- <link rel="shortcut icon" href="<?php echo e(asset('favicons/x.png')); ?>" /> -->
-        <link rel="shortcut icon" href="<?php echo e(asset('favicons/axis.png')); ?>" />
+        <link rel="shortcut icon" href="<?php echo e(asset('favicons/x.png')); ?>" />
+        <!-- <link rel="shortcut icon" href="<?php echo e(asset('favicons/axis.png')); ?>" /> -->
 
     <?php elseif(config('adminlte.use_full_favicon')): ?>
         <link rel="shortcut icon" href="<?php echo e(asset('favicons/favicon.ico')); ?>" />
@@ -98,9 +100,11 @@
     
     <?php if(config('adminlte.livewire')): ?>
         <?php if(app()->version() >= 7): ?>
-            @livewireScripts
+            <?php echo \Livewire\Livewire::scripts(); ?>
+
         <?php else: ?>
-            <livewire:scripts />
+            <?php echo \Livewire\Livewire::scripts(); ?>
+
         <?php endif; ?>
     <?php endif; ?>
 
