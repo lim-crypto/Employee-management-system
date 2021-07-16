@@ -20,7 +20,7 @@ class AttendanceController extends Controller
         $this->middleware('auth');
     }
 
-    public function getDate(Request $request)
+    public function getAttendance(Request $request)
     {
         $date = Carbon::create($request->date);
         $users = $this->attendanceByDate($date);

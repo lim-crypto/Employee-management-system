@@ -28,7 +28,7 @@ Route::patch('/users/{user}/update','UserController@uploadAvatar')->name('upload
 Route::resource('/attendances','AttendanceController' );
 Route::post('/attendances/view', 'AttendanceController@index')->name('attendances.index');
 Route::post('/attendances/show', 'AttendanceController@show')->name('attendances.show'); 
-Route::get('/getDate', 'AttendanceController@getDate')->name('getDate');
+Route::get('/getAttendance', 'AttendanceController@getAttendance')->name('getAttendance');
 
 Route::resource('/positions','PositionController' );
 Route::resource('/departments','DepartmentController' );

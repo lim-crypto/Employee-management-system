@@ -1,9 +1,32 @@
  
 
  <?php $__env->startSection('title', 'Axis'); ?>
- 
- <?php $__env->startSection('content'); ?> 
 
+ <?php $__env->startSection('content_header'); ?>
+ <?php $__env->stopSection(); ?>
+
+ <?php $__env->startSection('content'); ?>
+ <br>
+ <div class="card card-default">
+     <div class="card-body">
+         <div class="callout callout-info">
+             <h3 >Mission</h3>
+             <p>
+                 Throughout innovation and modernization, the company focuses to provide organized, accessible, and intricate products softwares that ensures quality of many and with Axis we believe that technological expertise is the central component on succesful organization handling.
+             </p>
+         </div>
+         <div class="callout callout-info">
+             <h3>Vision</h3>
+             <p>
+                 To be a succesful global technology company that ensures service excellence, better managerial experience, and collabration within the community of firms. Delivering innovative and value driven products for its end-users for years to come.
+             </p>
+         </div>
+     </div>
+ </div>
+
+
+
+ <h3>Organization Chart</h3>
  <div class="orgchart">
      <?php $__currentLoopData = $users; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $user): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
      <?php if($user->department_id==1): ?>

@@ -25,7 +25,7 @@ $heads = [ 'ID','Name','Entry','Time','Location','Exit','Time','Location',
         </div>
     </div>
     <div class="card-body" style="display: none;">
-        <form id="getDate">
+        <form id="getAttendance">
 
             <div class="card card-purple col-12 col-md-6 mx-auto">
                 <div class="row card-body">
@@ -103,13 +103,13 @@ $heads = [ 'ID','Name','Entry','Time','Location','Exit','Time','Location',
 @section('js')
 
 <script> 
-    document.getElementById('getDate').addEventListener('submit', getDate);
+    document.getElementById('getAttendance').addEventListener('submit', getAttendance);
 
-    function getDate(e) {
+    function getAttendance(e) {
         e.preventDefault();
         var date = document.getElementById('date').value;
         var xhr = new XMLHttpRequest();
-        xhr.open('get', 'getDate?date=' + date, true);
+        xhr.open('get', 'getAttendance?date=' + date, true);
         xhr.onload = function() {
             var users = JSON.parse(this.responseText);
             var tbody = '<table id="table2" style="width:100%" class="table table-hover table-striped table-sm table-ligth dataTable no-footer" role="grid" aria-describedby="table1_info">';
