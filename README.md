@@ -1,5 +1,8 @@
 # Employee Management System
-Axis is a employee management system created specifically for companies to systematically organize employee structure coupled with features that enables you to see their credentials and punctuality. This website is suitable for start-ups and business firms that is in need of intelligible monitoring tool that is easy to handle and utilize.## Usage
+<p> Axis is a employee management system created specifically for companies to systematically organize employee structure coupled with features that enables you to see their credentials and punctuality. This website is suitable for start-ups and business firms that is in need of intelligible monitoring tool that is easy to handle and utilize.
+</p>
+
+## Usage
 ### Functions
 
 <p> It has two sides employee and admin side. </p>
