@@ -20,7 +20,7 @@
 
 
  @if(auth()->user()->role_id==1)
-
+ <x-alert></x-alert>
  <x-alerts></x-alerts>
  <x-adminlte-card title="Employee" theme="purple" icon="fas fa-lg fa-fw fa-users " collapsible>
      <x-adminlte-datatable id="table1" :heads="$heads" theme="ligth" striped hoverable beautify compressed>
